@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :venues
+  resources :bands
   resources :users
 
   get "/me", to: "users#show"

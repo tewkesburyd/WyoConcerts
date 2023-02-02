@@ -15,7 +15,7 @@ export default function Navbar(){
                         <a href="/news" className="block py-2 pl-3 pr-4 text-black hover:bg-blue-100">News</a>
                     </li>
                     <li>
-                        <a href="/login" className="block py-2 pl-3 pr-4 text-black hover:bg-blue-100">
+                        <a href="/dashboard" className="block py-2 pl-3 pr-4 text-black hover:bg-blue-100">
                         <img src={user} alt="user" className="h-7" />
                         </a>
                     </li>
