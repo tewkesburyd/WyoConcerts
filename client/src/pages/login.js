@@ -6,7 +6,7 @@ export default function Login() {
     const [loggedIn, setLoggedIn] = useState(false)
 
     return (
-        <div>
+        <div className='h-screen'>
             {loggedIn === false ? <Signup setLoggedIn={setLoggedIn} /> : <LoginComponent setLoggedIn={setLoggedIn}/>}
         </div>
     )

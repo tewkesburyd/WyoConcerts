@@ -15,9 +15,12 @@ import './App.css';
 function App() {
 
   return (
-    <div>
+    <div className="flex flex-col h-screen md:justify-between">
       <BrowserRouter>
+        <div className="sticky top-0 ">
           <Navbar />
+        </div>
+        <div className="">
           <Switch>
             <Route path='/concerts/:id' exact component={Concert} />
             <Route path='/concerts' exact component={ConcertList}/>
@@ -27,7 +30,10 @@ function App() {
             <Route path='/dashboard' component={Dashboard}/>
             <Route path='/' exact component={Home} />
           </Switch>
-          <Footer />
+        </div>
+        <div className="fixed inset-x-0 bottom-0 mt-auto">
+        <Footer className=""/>
+        </div>
       </BrowserRouter>
     </div>
   );

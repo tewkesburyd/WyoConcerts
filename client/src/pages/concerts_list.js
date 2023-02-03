@@ -13,9 +13,13 @@ export default function ConcertList(){
     useEffect(() => {
         fetch('/concerts')
         .then((r) => {
+            console.log(r)
             if(r.ok){
                 r.json()
-                .then((data) => setConcerts(data))
+                .then((data) => {
+                    console.log(data)
+                    setConcerts(data)
+                })
             } else {
 
             }
@@ -25,7 +29,7 @@ export default function ConcertList(){
     const concertlist = concerts.map((concert) => <ConcertCard key={concert.id} concert={concert}/>)
 
     return(
-        <div>
+        <div className="h-screen">
             <div className="grid grid-cols-3">
                 <img src={JacksonHole2} alt="Jackson Hole Rendevous" className="h-full w-full"/>
                 <img src={OysterRidge} alt="Jackson Hole Rendevous" className="h-full w-full"/>

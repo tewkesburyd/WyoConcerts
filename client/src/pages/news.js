@@ -1,6 +1,6 @@
 export default function News() {
     return (
-        <div>
+        <div className='h-screen'>
             <h3>News</h3>
         </div>
     )
