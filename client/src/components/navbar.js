@@ -1,29 +1,33 @@
 import user from '../assets/logos/user.png';
+import wyomingflag from '../assets/logos/wyomingflag.png';
 
 export default function Navbar(){
     return (
-        <div className="w-full h-30">
-            <div className="h-10 bg-[#FFC425] flex flex-row justify-end">
-                <ul className="grid grid-cols-4">
+        <span className="">
+        <div className="h-30">
+            <div className="h-10 bg-[#a41e1f] flex flex-row justify-end">
+                <ul className="grid grid-cols-4 gap-2">
                     <li>
-                        <a href="/concerts" className="block py-2 pl-3 pr-4 text-black hover:bg-blue-100">Concerts</a>
+                        <a href="/concerts" className="py-2 block text-black hover:text-white">Concerts</a>
                     </li>
                     <li>
-                        <a href="/venues" className="block py-2 pl-3 pr-4 text-black hover:bg-blue-100">Venues</a>
+                        <a href="/venues" className="py-2 block text-black hover:text-white">Venues</a>
                     </li>
                     <li>
-                        <a href="/news" className="block py-2 pl-3 pr-4 text-black hover:bg-blue-100">News</a>
+                        <a href="/news" className="py-2 block text-black hover:text-white">News</a>
                     </li>
                     <li>
-                        <a href="/dashboard" className="block py-2 pl-3 pr-4 text-black hover:bg-blue-100">
+                        <a href="/dashboard" className="py-2 block ">
                         <img src={user} alt="user" className="h-7" />
                         </a>
                     </li>
                 </ul>
             </div>
-            <div className="h-20 bg-[#492F24] grid grid-cols-1 flex justify-center content-center">
-                <a href="/" className="text-[#FFC425] text-5xl justify-self-center">WyoConcerts</a>
+            <div className="h-20 bg-[#f6f6f6] border border-y border-[#dae1e8] grid grid-cols-2 flex justify-center content-center relative">
+                <img src={wyomingflag} alt='wyoming flag' className="float-left ml-10"/>
+                <a href="/" className="text-[#013662] text-4xl font-bold font-['Arial', 'Helvetica', 'sans-serif'] absolute justify-self-center self-center">WyoConcerts</a>
             </div>
         </div>
+        </span>
     )
 }

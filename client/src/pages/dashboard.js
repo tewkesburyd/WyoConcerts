@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import Logout from '../components/logout'
+import ConcertListCard from '../components/concerlistcard';
 
 export default function Dashboard() {
     const history = useHistory()
@@ -22,12 +23,20 @@ export default function Dashboard() {
         })
     }, [])
 
-    const concertlist = concerts.map((concert) => <h1>{concert.name}</h1>)
+    console.log(concerts)
+
+    const concertlist = concerts.map((concert) => <ConcertListCard key={concert.id} concert={concert} />)
 
     return (
-        <div>
-            <h2>Welcome User</h2>
-            <Logout />
+        <div className='h-screen '>
+            <div className="grid justify-items-center">
+                <div className="">
+                    <h2 className="text-xl">Welcome </h2>
+                </div>
+                <div className="">
+                    <Logout />
+                </div>
+            </div>
             <div>
                 {concertlist}
             </div>

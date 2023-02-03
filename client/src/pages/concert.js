@@ -36,7 +36,7 @@ export default function Concert() {
     }
 
     return (
-        <div>
+        <div className="h-screen">
             <div>
                 <div>
                     {concert.name}
@@ -54,7 +54,7 @@ export default function Concert() {
                 </div>
             </div>
             <div>
-                <button onClick={handleClick()}>
+                <button onClick={handleClick}>
                     Add to your concert list
                 </button>
             </div>

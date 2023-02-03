@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   resources :user_lists
-  resources :concerts
+  resources :concerts do 
+    resources :venues, only: [:show]
+  end
   resources :venues
   resources :bands
   resources :users
@@ -12,8 +14,8 @@ Rails.application.routes.draw do
 
   # get '/hello', to: 'application#hello_world'
 
-  # get '*path',
-  #     to: 'fallback#index',
-  #     constraints: ->(req) { !req.xhr? && req.format.html? }
+  get '*path',
+      to: 'fallback#index',
+      constraints: ->(req) { !req.xhr? && req.format.html? }
 
 end
