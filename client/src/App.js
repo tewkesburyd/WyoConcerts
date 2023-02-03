@@ -8,6 +8,7 @@ import News from './pages/news';
 import VenueList from './pages/venues_list';
 import Login from './pages/login';
 import Dashboard from './pages/dashboard';
+import Concert from './pages/concert';
 
 import './App.css';
 
@@ -18,7 +19,8 @@ function App() {
       <BrowserRouter>
           <Navbar />
           <Switch>
-            <Route path='/concerts' component={ConcertList}/>
+            <Route path='/concerts/:id' exact component={Concert} />
+            <Route path='/concerts' exact component={ConcertList}/>
             <Route path='/venues' component={VenueList}/>
             <Route path='/news' component={News}/>
             <Route path='/login' component={Login}/>

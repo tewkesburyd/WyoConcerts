@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :user_lists
+  resources :concerts
   resources :venues
   resources :bands
   resources :users

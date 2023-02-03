@@ -5,25 +5,32 @@ import Logout from '../components/logout'
 export default function Dashboard() {
     const history = useHistory()
     const [user, setUser] =useState(null)
+    const [concerts, setConcerts] = useState([])
 
     useEffect(()=> {
-    fetch('/users/:id')
+    fetch(`/me`)
     .then(r => {
         if(r.ok){
             r.json()
-            .then(data => setUser(data))
+            .then(data => {
+                setUser(data)
+                setConcerts(data.concerts)
+            })
         } else {
             history.replace(`/login`)
         }
         })
-    }, [history, user])
+    }, [])
 
+    const concertlist = concerts.map((concert) => <h1>{concert.name}</h1>)
 
     return (
         <div>
-            <h1> Why Isn't This Working?</h1>
             <h2>Welcome User</h2>
             <Logout />
+            <div>
+                {concertlist}
+            </div>
         </div>
     )
 }
