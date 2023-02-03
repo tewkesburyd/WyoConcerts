@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_02_02_203924) do
+ActiveRecord::Schema[7.0].define(version: 2023_02_03_052140) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -19,6 +19,26 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_02_203924) do
     t.string "category"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "concerts", force: :cascade do |t|
+    t.string "date"
+    t.string "name"
+    t.string "price"
+    t.string "website"
+    t.bigint "venue_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["venue_id"], name: "index_concerts_on_venue_id"
+  end
+
+  create_table "user_lists", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "concert_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["concert_id"], name: "index_user_lists_on_concert_id"
+    t.index ["user_id"], name: "index_user_lists_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -42,4 +62,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_02_203924) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "concerts", "venues"
+  add_foreign_key "user_lists", "concerts"
+  add_foreign_key "user_lists", "users"
 end

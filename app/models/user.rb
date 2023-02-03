@@ -1,4 +1,7 @@
 class User < ApplicationRecord
+    has_many :user_lists
+    has_many :concerts, through: :user_lists
+    
     has_secure_password
 
     validates :email, uniqueness: true

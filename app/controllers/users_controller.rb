@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   skip_before_action :authorize, only: [:create, :index]
+  before_action :set_user, only: [:update, :destroy]
 
   # GET /users
   def index
@@ -8,7 +9,7 @@ class UsersController < ApplicationController
 
   # GET /users/1
   def show
-    render json: @user
+    render json: @current_user
   end
 
   # POST /users
