@@ -10,7 +10,7 @@ export default function Logout(){
         })
         .then((r) => {
             r.json()
-            history.replace('/login')
+            history.replace('/')
         })
     }
 

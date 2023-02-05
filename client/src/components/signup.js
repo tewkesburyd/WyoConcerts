@@ -1,6 +1,8 @@
 import { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 
 export default function Signup({ setLoggedIn }) {
+    const history = useHistory()
 
     const [error, setError] = useState([])
     const [form, setForm] = useState({
@@ -24,6 +26,7 @@ export default function Signup({ setLoggedIn }) {
             if(r.ok) {
                 r.json().then((user) => console.log(user))
                 setLoggedIn(true)
+                history.replace('/dasboard')
             } else {
                 r.json().then((error) => setError(error.error))
             }

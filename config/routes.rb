@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  resources :user_lists
+  resources :user_lists do
+    resources :concerts, only: [:show]
+  end
   resources :concerts do 
     resources :venues, only: [:show]
   end

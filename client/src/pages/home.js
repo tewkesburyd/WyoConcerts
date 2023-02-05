@@ -22,7 +22,7 @@ export default function Home() {
         })
     }, [])
 
-    const concertList = concerts.map((concert) => <ConcertListCard key={concert.id} concert={concert}/>)
+    const concertList = concerts.map((concert) => <ConcertListCard key={concert.id} concert={concert} buttonText="Add to Your List" />)
 
     return (
         <div className="h-screen">
@@ -31,14 +31,14 @@ export default function Home() {
                 <img src={FrontierDays} alt='Fontier Days' className="h-auto w-full"/>
                 <img src={LanderBar} alt='Lander Bar' className="h-full w-full"/>
             </div>
-            <div className="grid grid-cols-2 gap-4 p-5  flex justify-center content-center">
-                <div className="min-h-40 w-full p-5 border-2 border-black justify-self-center">
+            <div className="grid grid-cols-2 gap-4 p-5 flex justify-center content-center h-full">
+                <div className="min-h-50 w-full p-5 border-2 border-black justify-self-center">
                     <div className="grid">
                         <h3 className="justify-self-center font-bold">Up Coming Shows</h3>
                     </div>
                     <div className="h-96">
                         <div className="overflow-y-scroll h-full">
-                        {concertList}
+                            {concertList}
                         </div>
                     </div>
                 </div>
