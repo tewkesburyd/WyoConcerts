@@ -26,7 +26,8 @@ export default function ConcertList(){
         })
     }, [])
 
-    const concertlist = concerts.map((concert) => <ConcertCard key={concert.id} concert={concert}/>)
+
+    const concertlist = concerts.map((concert) => <ConcertCard key={concert.id} concert={concert} />)
 
     return(
         <div className="h-screen">

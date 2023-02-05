@@ -10,6 +10,7 @@ class UserListsController < ApplicationController
 
   # GET /user_lists/1
   def show
+    @user_lists.concert
     render json: @user_list
   end
 

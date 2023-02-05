@@ -5,7 +5,6 @@ export default function Concert() {
     let { id } = useParams()
 
     const [concert, setConcert] = useState({})
-
     useEffect(() => {
         fetch(`/concerts/${id}`)
         .then((r) => {
@@ -54,8 +53,8 @@ export default function Concert() {
                 </div>
             </div>
             <div>
-                <button onClick={handleClick}>
-                    Add to your concert list
+                <button onClick={handleClick} className="shadow bg-[#013662] hover:[#a41e1f] focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded self-center">
+                    Add to Concert List
                 </button>
             </div>
         </div>
