@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react';
-
 import ConcertCard from '../components/concertcard';
 import JacksonHole2 from './../assets/images/JacksonHole2.jpeg';
 import JacksonHole from './../assets/images/JacksonHole.jpeg';
@@ -13,11 +12,9 @@ export default function ConcertList(){
     useEffect(() => {
         fetch('/concerts')
         .then((r) => {
-            console.log(r)
             if(r.ok){
                 r.json()
                 .then((data) => {
-                    console.log(data)
                     setConcerts(data)
                 })
             } else {
@@ -27,7 +24,7 @@ export default function ConcertList(){
     }, [])
 
 
-    const concertlist = concerts.map((concert) => <ConcertCard key={concert.id} concert={concert} />)
+    const concertlist = concerts.map((concert) => <ConcertCard key={concert.id} concert={concert} imgSize="relative box-border border-4 md:h-32 md:w-32" />)
 
     return(
         <div className="h-screen">
@@ -44,8 +41,8 @@ export default function ConcertList(){
                     <h3>search</h3>
                 </div>
                 <div className="w-3/4 mt-3">
-                    <div className="">
-                        <div className="grid grid-cols-4 gap-4">
+                    <div className="h-96">
+                        <div className="grid grid-cols-4 gap-4 overflow-y-scroll h-full">
                             {concertlist}
                         </div>
                     </div>
