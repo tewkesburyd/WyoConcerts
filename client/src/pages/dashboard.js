@@ -24,14 +24,14 @@ export default function Dashboard() {
         })
     }, [history])
 
-    const concertlist = userList.map((concert) => <DashboardList key={concert.id} concert={concert} buttonText="Remove From List" setUserList={setUserList} />)
+    const concertlist = userList.map((concert) => <DashboardList key={concert.id} concert={concert} buttonText="Remove From List" setUserList={setUserList} userList={userList}/>)
 
     return (
         <div className='h-screen'>
             <div className="grid grid-cols-2 gap-2 ">
                 <div className="max-w-md flex flex-col">
                     <div className="mt-5 mb-5  ml-10">
-                        <h2 className="text-4xl mb-3">Welcome</h2>
+                        <h2 className="text-4xl mb-3">Welcome {user?.username}</h2>
                         <Logout className=""/>
                     </div>
                     <div className="min-h-40 max-w-md border-2 border-black ml-10">
@@ -41,7 +41,7 @@ export default function Dashboard() {
                 </div>
                 <div className="bg-[#f6f6f6] overflow-hidden w-full h-screen">
                     <div className="px-6 py-4 flex-1 overflow-y-scroll">
-                        {userList.length === 0 ? <div><h1 className="">There are no concert's in your list at this time.</h1><a href="/concerts">Explore Concerts</a></div>: concertlist}
+                        {userList.length === 0 ? <div><h1 className="">There are no concert's in your list at this time.</h1><a href="/concerts" className="shadow bg-[#013662] hover:[#a41e1f] focus:shadow-outline focus:outline-none text-white px-2 rounded">Explore Concerts</a></div>: concertlist}
                     </div>
                 </div>
             </div>

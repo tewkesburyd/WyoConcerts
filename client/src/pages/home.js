@@ -3,6 +3,7 @@ import LanderPresents from './../assets/images/LanderPresents.jpeg'
 import FrontierDays from './../assets/images/FrontierDays.jpeg'
 import LanderBar from './../assets/images/LanderBar.jpeg'
 import ConcertListCard from '../components/concerlistcard';
+import ConcertCard from '../components/concertcard';
 
 
 export default function Home() {
@@ -14,13 +15,14 @@ export default function Home() {
             if(r.ok){
                 r.json()
                 .then((data) => {
-                    console.log(data)
                     setConcerts(data)})
             } else {
                 console.log(r)
             }
         })
     }, [])
+
+    
 
     const concertList = concerts.map((concert) => <ConcertListCard key={concert.id} concert={concert} buttonText="Add to Your List" />)
 
@@ -44,7 +46,10 @@ export default function Home() {
                 </div>
                 <div className="min-h-40 w-full p-5 border-2 border-black justify-self-center">
                     <div className="grid" >
-                        <p className="justify-self-center font-bold">Show of the Month</p>
+                        <p className="justify-self-center font-bold">Learn More</p>
+                        <ConcertCard concert={concerts[0]} imgSize='relative box-border border-4'/>
+                        <p className="justify-self-center ">{concerts[0]?.venue.description}</p>
+                        <p className="justify-self-center ">{concerts[0]?.website}</p>
                     </div>
                 </div>
             </div>

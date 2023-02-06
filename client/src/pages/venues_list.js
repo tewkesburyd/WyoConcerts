@@ -16,7 +16,7 @@ export default function VenueList() {
         })
     },[])
 
-    const venuelist = venues.map((venue) => <VenueCard venue={venue}/>)
+    const venuelist = venues.map((venue) => <VenueCard key={venue.id} venue={venue}/>)
 
     return (
         <div className='h-screen'>

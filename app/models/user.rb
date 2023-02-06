@@ -1,10 +1,12 @@
 class User < ApplicationRecord
     has_many :user_lists
     has_many :concerts, through: :user_lists
+    has_many :posts
+    has_many :concerts, through: :posts
     
     has_secure_password
 
-    validates :email, uniqueness: true
+    validates :email, :username, uniqueness: true
 
     def password=(new_password)
         salt = BCrypt::Engine::generate_salt

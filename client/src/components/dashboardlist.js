@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 
-export default function DashboardList({ concert, buttonText }) {
+export default function DashboardList({ concert, buttonText, setUserList, userList }) {
     const [show, setShow] = useState({})
     
     useEffect(() => {
@@ -16,6 +16,12 @@ export default function DashboardList({ concert, buttonText }) {
     const handleDelete =  () => {
         fetch(`/user_lists/${concert.id}`, {
             method: 'DELETE',
+        })
+        .then((r) => {
+            if(r.ok){
+                r.json()
+                setUserList(userList.filter(concert => concert.id !== concert.id))
+            }
         })
     }
 
