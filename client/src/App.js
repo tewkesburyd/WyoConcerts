@@ -9,10 +9,24 @@ import VenueList from './pages/venues_list';
 import Login from './pages/login';
 import Dashboard from './pages/dashboard';
 import Concert from './pages/concert';
-
+import 'react-calendar/dist/Calendar.css';
 import './App.css';
+import { useState, useEffect } from 'react';
 
 function App() {
+  const [user, setUser] = useState(null)
+
+  useEffect(()=> {
+    fetch(`/me`)
+    .then(r => {
+        if(r.ok){
+            r.json()
+            .then(data => {
+                setUser(data)
+            })
+        } 
+        })
+    }, [])
 
   return (
     <div className="flex flex-col h-screen md:justify-between">
@@ -22,7 +36,7 @@ function App() {
         </div>
         <div className="">
           <Switch>
-            <Route path='/concerts/:id' exact component={Concert} />
+            <Route path='/concerts/:id' exact component={Concert} user={user}/>
             <Route path='/concerts' exact component={ConcertList}/>
             <Route path='/venues' component={VenueList}/>
             <Route path='/news' component={News}/>

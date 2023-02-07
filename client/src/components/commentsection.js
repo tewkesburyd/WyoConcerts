@@ -18,7 +18,7 @@ export default function CommentSection({posts, setPosts}){
                 r.json()
             }
         })
-    }, [])
+    }, [id])
 
     const handleChange = (e) => {
         setForm({...form, [e.target.name]:e.target.value})
@@ -39,9 +39,13 @@ export default function CommentSection({posts, setPosts}){
                 r.json()
                 .then((data) => {
                     setPosts([...posts, data])
+                    setForm({
+                        concert_id: id,
+                        message: ''
+                    })
                 })
             } else {
-                if(r.status == 401){
+                if(r.status === 401){
                     setError("Must be signed in to comment")
                 }
             }

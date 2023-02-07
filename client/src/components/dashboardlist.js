@@ -20,7 +20,7 @@ export default function DashboardList({ concert, buttonText, setUserList, userLi
         .then((r) => {
             if(r.ok){
                 r.json()
-                setUserList(userList.filter(concert => concert.id !== concert.id))
+                setUserList(userList.filter(show => show.id !== concert.id))
             }
         })
     }
