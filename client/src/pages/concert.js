@@ -1,12 +1,14 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router';
 import CommentSection from '../components/commentsection';
+import AdminConcert from '../components/admin_concert';
 
-export default function Concert() {
+export default function Concert({ user }) {
     let { id } = useParams()
 
     const [concert, setConcert] = useState({})
     const [posts, setPosts] = useState([])
+    const [isAdmin, setIsAdmin] = useState(false)
 
     useEffect(() => {
         fetch(`/concerts/${id}`)
@@ -24,12 +26,13 @@ export default function Concert() {
     },[id])
 
     const handleClick = () => {
+        console.log(concert)
         fetch('/user_lists', {
             method: 'POST',
             headers: {
                 "Content-Type": "application/json"
             },
-            body: JSON.stringify({concert_id: id})
+            body: JSON.stringify({concert_id: concert.id})
         })
         .then((r) => {
             if(r.ok){

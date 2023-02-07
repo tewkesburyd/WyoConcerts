@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import Logout from '../components/logout'
 import DashboardList from '../components/dashboardlist';
+import Admin from '../components/admin';
 import Calendar from 'react-calendar';
 
 export default function Dashboard() {
@@ -35,15 +36,18 @@ export default function Dashboard() {
                         <Logout className=""/>
                     </div>
                     <div className="min-h-40 max-w-md border-2 border-black ml-10">
-                        <Calendar />
+                        <Calendar className="min-h-40 max-w-full border-2 border-black " />
                     </div>
-
                 </div>
-                <div className="bg-[#f6f6f6] overflow-hidden w-full h-screen">
+                <div className="overflow-hidden w-full">
                     <div className="px-6 py-4 flex-1 overflow-y-scroll">
                         {userList.length === 0 ? <div><h1 className="">There are no concert's in your list at this time.</h1><a href="/concerts" className="shadow bg-[#013662] hover:[#a41e1f] focus:shadow-outline focus:outline-none text-white px-2 rounded">Explore Concerts</a></div>: concertlist}
                     </div>
                 </div>
+                
+            </div>
+            <div className="ml-10">
+            {user?.admin === true ? <Admin /> : null}
             </div>
         </div>
     )
