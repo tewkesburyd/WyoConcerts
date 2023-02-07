@@ -36,9 +36,9 @@ function App() {
         </div>
         <div className="">
           <Switch>
-            <Route path='/concerts/:id' exact component={Concert} user={user}/>
+            <Route path='/concerts/:id' exact render={() => <Concert user={user} />} />
             <Route path='/concerts' exact component={ConcertList}/>
-            <Route path='/venues' component={VenueList}/>
+            <Route path='/venues' render={() => <VenueList user={user} />}/>
             <Route path='/news' component={News}/>
             <Route path='/login' component={Login}/>
             <Route path='/dashboard' component={Dashboard}/>

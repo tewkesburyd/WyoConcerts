@@ -1,14 +1,15 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router';
 import CommentSection from '../components/commentsection';
-import AdminConcert from '../components/admin_concert';
+import AdminConcertEdit from '../components/admin_concert_edit';
 
 export default function Concert({ user }) {
     let { id } = useParams()
 
     const [concert, setConcert] = useState({})
     const [posts, setPosts] = useState([])
-    const [isAdmin, setIsAdmin] = useState(false)
+    const [formIsShown, setFormIsShown] = useState(false)
+
 
     useEffect(() => {
         fetch(`/concerts/${id}`)
@@ -26,7 +27,6 @@ export default function Concert({ user }) {
     },[id])
 
     const handleClick = () => {
-        console.log(concert)
         fetch('/user_lists', {
             method: 'POST',
             headers: {
@@ -43,8 +43,20 @@ export default function Concert({ user }) {
         })
     }
 
+    
+
     return (
         <div className="h-screen grid grid-cols-1">
+            <>
+            <div className="ml-10 w-full">
+            {user?.admin === true ? 
+                <div>
+                    <button className="text-[#013662] text-l font-bold font-['Arial', 'Helvetica', 'sans-serif'] " onClick={() => setFormIsShown(!formIsShown)}>{formIsShown === false ? "Edit Concert" : "Hide Form"}</button>
+                    {formIsShown === true ? <AdminConcertEdit concert={concert} id={id}/> : null}
+                </div> 
+                : null}
+            </div>
+            </>
             <div className="p-10 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-1 xl:grid-cols-3 gap-5">
                 <div className="lg:max-w-full lg:flex ">
                     <img className="object-cover w-full md:flex-row md:max-w-xl" src={concert.image} alt={concert.name} />
@@ -71,6 +83,7 @@ export default function Concert({ user }) {
                     </div>
                 </div>
             </div>
+
             <CommentSection posts={posts} setPosts={setPosts}/>
         </div>
     )
