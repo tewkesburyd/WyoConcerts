@@ -1,8 +1,9 @@
 import { useState, useEffect } from 'react'
 import VenueCard from '../components/venuecard';
 
-export default function VenueList() {
+export default function VenueList({user}) {
     const [venues, setVenues] = useState([])
+
 
     useEffect(() => {
         fetch('/venues')
@@ -16,7 +17,7 @@ export default function VenueList() {
         })
     },[])
 
-    const venuelist = venues.map((venue) => <VenueCard key={venue.id} venue={venue}/>)
+    const venuelist = venues.map((venue) => <VenueCard key={venue.id} venue={venue} user={user}/>)
 
     return (
         <div className='h-screen'>

@@ -46,5 +46,10 @@ group :development do
   # gem "spring"
 end
 
+#Use for scraper
+gem 'watir', '~> 7.2'
+gem 'webdrivers', '~> 4.6'
+gem 'nokogiri', '~> 1.11', '>= 1.11.7'
+
 
 gem "active_model_serializers", "~> 0.10.13"
