@@ -29,7 +29,7 @@ function App() {
     }, [])
 
   return (
-    <div className="flex flex-col h-screen md:justify-between">
+    <div className="flex flex-col h-screen ">
       <BrowserRouter>
         <div className="sticky top-0 ">
           <Navbar />

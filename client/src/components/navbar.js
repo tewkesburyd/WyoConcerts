@@ -23,9 +23,9 @@ export default function Navbar(){
                     </li>
                 </ul>
             </div>
-            <div className="h-20 bg-[#f6f6f6] border border-y border-[#dae1e8] grid grid-cols-2 flex justify-center content-center relative">
-                <img src={wyomingflag} alt='wyoming flag' className="float-left ml-10"/>
-                <a href="/" className="text-[#013662] text-4xl font-bold font-['Arial', 'Helvetica', 'sans-serif'] absolute justify-self-center self-center">WyoConcerts</a>
+            <div className="h-14 bg-[#f6f6f6] border border-y border-[#dae1e8] grid grid-cols-2 flex justify-center content-center relative">
+                <img src={wyomingflag} alt='wyoming flag' className="float-left ml-10 w-16"/>
+                <a href="/" className="text-[#013662] text-3xl font-bold font-['Arial', 'Helvetica', 'sans-serif'] absolute justify-self-center self-center">WyoConcerts</a>
             </div>
         </div>
         </span>
