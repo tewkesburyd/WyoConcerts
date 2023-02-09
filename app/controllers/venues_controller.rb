@@ -3,7 +3,8 @@ skip_before_action :authorize, only: [:index, :show,]
 before_action :set_venue, only: [:update, :destroy]
   # GET /venues
   def index
-    render json: Venue.all
+    venues = Venue.all
+    render json: venues.order(:city)
   end
 
   # GET /venues/1

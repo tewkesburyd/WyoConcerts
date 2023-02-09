@@ -5,5 +5,6 @@ class Concert < ApplicationRecord
   has_many :posts
   has_many :concerts, through: :posts
 
-  validates :name, :date, :venue_id, presence: true
+  validates :name, :date, presence: true
+  #validates_uniqueness_of :name, scope: {}
 end

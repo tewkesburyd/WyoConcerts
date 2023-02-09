@@ -30,7 +30,7 @@ export default function ConcertListCard({ concert, buttonText}) {
                 <div className="w-3/4">
                     <h3 className="font-bold">{concert.name}</h3>
                     <p className="text-xs">{concert.name}</p>
-                    <p className="text-xs" >{concert.venue?.city}, {concert.venue?.state}</p>
+                    <p className="text-xs" >{concert.venue?.city} {concert.venue?.state}</p>
                     <a className="text-xs" href={concert.website}>Venue Website</a>
                 </div>
                 <div className="flex">
