@@ -7,6 +7,7 @@ export default function Concert({ user }) {
     let { id } = useParams()
 
     const [concert, setConcert] = useState({})
+    const [error, setError] = useState(null)
     const [posts, setPosts] = useState([])
     const [formIsShown, setFormIsShown] = useState(false)
 
@@ -38,7 +39,9 @@ export default function Concert({ user }) {
             if(r.ok){
                 r.json()
             } else {
-                console.log(r)
+                if(r.status === 401){
+                    setError("Must be signed in")
+                }
             }
         })
     }
@@ -80,6 +83,7 @@ export default function Concert({ user }) {
                         <button onClick={handleClick} className="shadow bg-[#013662] hover:[#a41e1f] focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded self-center">
                         Add to Concert List
                         </button>
+                        <h1 className="text-[#a41e1f]">{error}</h1>
                     </div>
                 </div>
             </div>

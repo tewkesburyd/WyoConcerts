@@ -1,7 +1,4 @@
-import { useState } from 'react';
-
 export default function CommentCard({ comment, setPosts, posts }){
-    const [message, setMessage] = useState('')
 
     const handleDelete = () => {
         fetch(`/posts/${comment.id}`, {
@@ -12,16 +9,6 @@ export default function CommentCard({ comment, setPosts, posts }){
                 r.json()
                 setPosts(posts.filter(post => post.id !== comment.id))
             }
-        })
-    }
-
-    const handleEdit = () => {
-        fetch(`/posts/${comment.id}`, {
-            method: 'PATCH',
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify()
         })
     }
 

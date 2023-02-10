@@ -1,5 +1,5 @@
 class VenuesController < ApplicationController
-skip_before_action :authorize, only: [:index, :show,]
+skip_before_action :authorize, only: [:index, :show]
 before_action :set_venue, only: [:update, :destroy]
   # GET /venues
   def index
