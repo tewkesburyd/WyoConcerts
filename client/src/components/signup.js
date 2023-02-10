@@ -14,7 +14,6 @@ export default function Signup({ setLoggedIn }) {
         console.log(form)
 
     const handleSubmit = (e) => {
-        // console.log('submit')
         e.preventDefault()
         setError([])
         fetch('/signup', {
@@ -43,7 +42,7 @@ export default function Signup({ setLoggedIn }) {
             <form className="w-full max-w-sm" onSubmit={handleSubmit}>
                 <div className="md:flex md:items-center mb-6">
                     <div className="md:w-1/3">
-                        <label className="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4" for="inline-full-name">
+                        <label className="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4">
                             Username
                         </label>
                     </div>
@@ -53,7 +52,7 @@ export default function Signup({ setLoggedIn }) {
                     </div>
                 <div className="md:flex md:items-center mb-6">  
                         <div className="md:w-1/3">
-                            <label className="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4" for="inline-full-name">
+                            <label className="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4" >
                             E-mail
                             </label>
                         </div>
@@ -63,7 +62,7 @@ export default function Signup({ setLoggedIn }) {
                     </div>
                     <div className="md:flex md:items-center mb-6">
                         <div className="md:w-1/3">
-                            <label className="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4" for="inline-password">
+                            <label className="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4" >
                             Password
                             </label>
                         </div>

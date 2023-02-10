@@ -3,9 +3,9 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import Navbar from './components/navbar';
 import Footer from './components/footer';
 import Home from './pages/home';
-import ConcertList from './pages/concerts_list';
+import ConcertList from './pages/concerts';
 import News from './pages/news';
-import VenueList from './pages/venues_list';
+import VenueList from './pages/venues';
 import Login from './pages/login';
 import Dashboard from './pages/dashboard';
 import Concert from './pages/concert';
@@ -29,12 +29,12 @@ function App() {
     }, [])
 
   return (
-    <div className="flex flex-col h-screen ">
-      <BrowserRouter>
-        <div className="sticky top-0 ">
+    <div className="flex flex-col h-screen">
+        <div className="w-full sticky top-0 ">
           <Navbar />
         </div>
-        <div className="">
+      <BrowserRouter>
+        <div className="flex-1 overflow-y-scroll">
           <Switch>
             <Route path='/concerts/:id' exact render={() => <Concert user={user} />} />
             <Route path='/concerts' exact component={ConcertList}/>

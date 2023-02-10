@@ -14,7 +14,7 @@ export default function ConcertCard({ concert, imgSize }) {
                 <img className="object-cover w-full h-full rounded-t-lg h-96 md:h-full md:w-48 md:rounded-none md:rounded-l-lg" src="https://res.cloudinary.com/dhh19fozh/q_auto:good,f_auto,dpr_1.0/w_auto:breakpoints_85_850_10_10/jb7production-uploads/2015/06/andy-frasco-un-press-crop-1200x675.jpg" alt={concert?.name} />
                 <div className="flex flex-col justify-between p-4 leading-normal">
                     <h1 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 ">{concert?.name}</h1>
-                    <h3 className="mb-3 font-normal text-gray-700 dark:text-gray-400">{concert?.venue.name}</h3>
+                    <h3 className="mb-3 font-normal text-gray-700 dark:text-gray-400">@{concert?.venue.name}</h3>
                     <div className="max-w-max flex">
                         <img src={location} alt='location' className="float-left h-4 mt-1 pr-2"/>
                         <p className="max-w-max">{concert?.venue.city} {concert?.venue.state}</p>

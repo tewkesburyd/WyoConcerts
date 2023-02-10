@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import AdminVenue from "./admin_venue";
-import AdminConcert from "./admin_concert";
+import AdminVenue from "./admin_venue_add";
+import AdminConcert from "./admin_concert_add";
 
 export default function Admin() {
     const [venue, setVenue] = useState(false)
