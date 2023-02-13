@@ -6,6 +6,6 @@ require_relative "config/application"
 Rails.application.load_tasks
 
 task scrape: :environment do
-    # Scraper.scrape
+    Scraper.scrape
     Scraper.mangyMoose
 end

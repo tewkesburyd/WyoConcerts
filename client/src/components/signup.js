@@ -46,7 +46,7 @@ export default function Signup({ setLoggedIn }) {
                         </label>
                     </div>
                         <div className="md:w-2/3">
-                            <input className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500" type="text" onChange={handleChange} name="username" placeholder= "Username" value={form.username} />
+                            <input className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-600" type="text" onChange={handleChange} name="username" placeholder= "Username" value={form.username} />
                         </div>
                     </div>
                 <div className="md:flex md:items-center mb-6">  
@@ -56,7 +56,7 @@ export default function Signup({ setLoggedIn }) {
                             </label>
                         </div>
                         <div className="md:w-2/3">
-                            <input className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500" type="text" onChange={handleChange} name="email" placeholder= "email address" value={form.email} />
+                            <input className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-600" type="text" onChange={handleChange} name="email" placeholder= "email address" value={form.email} />
                         </div>
                     </div>
                     <div className="md:flex md:items-center mb-6">
@@ -66,7 +66,7 @@ export default function Signup({ setLoggedIn }) {
                             </label>
                         </div>
                         <div className="md:w-2/3">
-                            <input className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500" name="password" type="password" onChange={handleChange} value={form.password} placeholder="*************" />
+                            <input className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-600" name="password" type="password" onChange={handleChange} value={form.password} placeholder="*************" />
                         </div>
                     </div>
                     <div className="md:flex md:items-center mb-6">
@@ -81,7 +81,7 @@ export default function Signup({ setLoggedIn }) {
                 <div className="md:flex md:items-center mb-6">
                     <div className="md:w-1/3"></div>
                         <div className="md:w-2/3">
-                            <button className="shadow bg-[#FFC425] hover:bg-purple-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded" type="submit">
+                            <button className="shadow bg-[#013662]  focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded" type="submit">
                             Sign Up
                             </button>
                         </div>
