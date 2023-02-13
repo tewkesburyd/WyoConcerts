@@ -5,7 +5,7 @@ export default function Logout(){
 
     const handleLogout = () => {
         // console.log('logout')
-        fetch('/logout', {
+        fetch('/api/logout', {
             method: 'DELETE',
         })
         .then((r) => {

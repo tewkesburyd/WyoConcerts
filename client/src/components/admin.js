@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import add from './../assets/logos/add.png'
 import AdminVenue from "./admin_venue_add";
 import AdminConcert from "./admin_concert_add";
 
@@ -18,7 +19,7 @@ export default function Admin() {
             // console.log('submit')
             e.preventDefault()
             // setError([])
-            fetch('/concert', {
+            fetch('/api/concerts', {
                 method: 'POST',
                 headers: {
                     "Content-Type" : "application/json"
@@ -41,24 +42,25 @@ export default function Admin() {
     return (
         <div className="h-screen ">
             <div className="grid grid-cols-1">
-                <h1 className="text-[#013662] text-3xl font-bold font-['Arial', 'Helvetica', 'sans-serif'] py-5">Administrator Functions</h1>
+                <h1 className="text-[#013662] text-2xl font-bold font-['Arial', 'Helvetica', 'sans-serif'] pt-5">Admin Functions</h1>
+                <p>To edit a venue or concert,</p>
+                <p>go to the respective page.</p>
+                <p>Click the edit icon in the</p>
+                <p>information section.</p>
             </div>
-            <div>
-                <button className="text-[#013662] text-xl font-bold font-['Arial', 'Helvetica', 'sans-serif']" onClick={()=>setVenue(!venue)}>{venue === false ? "Add A Venue" : "Hide Venue"}</button>
+            <div className="flex">
+                <img src={add} alt="add" className="max-h-6" onClick={()=>setVenue(!venue)}></img>
+                <h3>Venue</h3>
                 {venue === true ? <AdminVenue /> : null}
+                
             </div>
-            <div>
-                <p>To edit a venues information, go to the venue page</p>
-            </div>
-            <div>
-                <button className="text-[#013662] text-xl font-bold font-['Arial', 'Helvetica', 'sans-serif']" onClick={()=>setFormIsShown(!formIsShown)}>
-                    {formIsShown === false ? "Add A Concert" : "Hide Concert"}
-                </button>
+            <div className="flex">
+                <img src={add} alt="add" className="max-h-6" onClick={()=>setFormIsShown(!formIsShown)}></img>
+                <h3>Concert</h3>
                 {formIsShown === true ? <AdminConcert form={form} handleForm={handleSubmit} setForm={setForm}/> : null}
+                
             </div> 
-            <div>
-                <p>To edit a concerts information, go to the specific concert page</p>
-            </div>
+
         </div>
     )
 }

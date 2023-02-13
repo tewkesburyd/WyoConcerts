@@ -11,7 +11,7 @@ export default function Dashboard() {
     const [userList, setUserList] = useState([])
 
     useEffect(()=> {
-    fetch(`/me`)
+    fetch(`/api/me`)
     .then(r => {
         if(r.ok){
             r.json()

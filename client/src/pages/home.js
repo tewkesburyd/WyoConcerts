@@ -15,7 +15,7 @@ export default function Home() {
     const [freeConcerts, setFreeConcerts] = useState([])
 
     useEffect(() => {
-        fetch('/concerts')
+        fetch('/api/concerts')
         .then((r) => {
             if(r.ok){
                 r.json()
@@ -28,7 +28,7 @@ export default function Home() {
     }, [])
 
     useEffect(() => {
-        fetch('/freeconcerts')
+        fetch('/api/freeconcerts')
         .then((r) => {
             if(r.ok){
                 r.json()
@@ -74,7 +74,7 @@ export default function Home() {
                 <img src={LanderBar} alt='Lander Bar' className="h-60 w-full"/>
                 <img src={LanderPresents} alt='Lander Presents' className="h-60 w-full"/>
             </div>
-            <div className="pt-10 w-2/3 m-auto flex justify-center grid grid-cols-1">
+            <div className="py-10 w-2/3 m-auto flex justify-center grid grid-cols-1">
                 <h3 className="justify-self-start text-2xl text-[#43464b] font-bold font-['Georgia','Arial'] mb-4">News</h3>
                 <div className="grid grid-cols-3 ">
                 <NewsThumbnail image={RendezvousLineUp} title="Rendezvous Line Up" newsSection='/news#section1' />
@@ -82,20 +82,18 @@ export default function Home() {
                 <NewsThumbnail image={CodyFestival} title="Cody Songwriter Festival" newsSection='/news#section3' />
                 </div>
             </div>
-            <div className="relative flex relative flex container min-h-96 mb-10">
-                <div className="pt-10 m-auto flex justify-center grid grid-cols-2 w-5/6">
-                    <div className="min-h-full p-5 justify-self-center w-full">
-                        <div className="grid" >
-                            <h3 className="justify-self-start text-2xl text-[#43464b] font-bold font-['Georgia','Arial'] mb-4">Free Concerts</h3>
-                            {freeConcertList}
+            <div className="mb-20">
+                <div className="pt-10 m-auto grid grid-cols-2 w-5/6">
+                    <div className="">
+                        <h3 className="justify-self-start text-2xl text-[#43464b] font-bold font-['Georgia','Arial'] mb-4">Free Concerts</h3>
+                        <div className="w-full">
+                        {freeConcertList}
                         </div>
                     </div>
-                    <div className="min-h-96 p-5 justify-self-center w-full float-right">
-                        <div className="grid">
-                            <h3 className="justify-self-start text-2xl text-[#43464b] font-bold font-['Georgia','Arial'] mb-4">Shows in {currentMonthName}</h3>
-                        </div>
+                    <div className="min-h-96 justify-self-center w-full float-right">
+                        <h3 className="justify-self-start text-2xl text-[#43464b] font-bold font-['Georgia','Arial'] mb-4">Shows in {currentMonthName}</h3>
                         <div className="h-96">
-                            <div className="overflow-y-scroll h-full">
+                            <div className="overflow-y-scroll h-full ">
                                 {concertList}
                             </div>
                         </div>

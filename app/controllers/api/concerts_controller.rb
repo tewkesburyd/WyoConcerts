@@ -1,4 +1,4 @@
-class ConcertsController < ApplicationController
+class Api::ConcertsController < ApplicationController
   skip_before_action :authorize, only: [:index, :show, :freeConcerts]
   before_action :set_concert, except: [:index, :freeConcerts]
 

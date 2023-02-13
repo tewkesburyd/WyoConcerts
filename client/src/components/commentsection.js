@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { useParams } from 'react-router';
 import CommentCard from './commentcard';
 
-export default function CommentSection({posts, setPosts}){
+export default function CommentSection({posts, setPosts, user}){
     let { id } = useParams()
 
     const [error, setError] = useState(null)
@@ -12,7 +12,7 @@ export default function CommentSection({posts, setPosts}){
     })
 
     useEffect(() => {
-        fetch(`/concerts/${id}`)
+        fetch(`/api/concerts/${id}`)
         .then((r) => {
             if(r.ok){
                 r.json()
@@ -27,7 +27,7 @@ export default function CommentSection({posts, setPosts}){
     const handlePost = (e) => {
         e.preventDefault()
         setError(null)
-        fetch('/posts', {
+        fetch('/api/posts', {
             method: 'POST',
             headers: {
                 "Content-Type": "application/json",
@@ -53,31 +53,31 @@ export default function CommentSection({posts, setPosts}){
 
     }
 
-
-
-    const commentsList = posts.map((comment) => <CommentCard key={comment.id} comment={comment} setPosts={setPosts} posts={posts} />)
+    const commentsList = posts.map((comment) => <CommentCard key={comment.id} comment={comment} setPosts={setPosts} posts={posts} user={user}/>)
 
     return (
-        <section className="max-h-full bg-white dark:bg-[#013662]  lg:py-10">
+        <section className="max-h-full bg-white dark:bg-[#013662]  lg:py-10 pb-10">
             <div className="max-w-2xl mx-auto px-4">
                 <div className="flex justify-between items-center mb-6">
-                    <h2 className="text-lg lg:text-2xl font-bold text-gray-900 dark:text-white">Discussion</h2>
+                    <h2 className="text-lg lg:text-2xl font-bold text-gray-900 dark:text-white">Posts</h2>
                 </div>
-                <form className="mb-6" onSubmit={handlePost}>
-                    <div className="py-2 px-4 mb-4 bg-[#f6f6f6] rounded-lg rounded-t-lg border border-gray-200 ">
-                        <label className="sr-only">Your comment</label>
-                        <textarea id="comment" rows="6"
-                            className="px-0 w-full text-sm text-gray-900 border-0 focus:ring-0 focus:outline-none bg-[#f6f6f6] dark:placeholder-black"
-                            placeholder="Write a comment..." onChange={handleChange} name="message" value={form.message}></textarea>
-                    </div>
-                    <button type="submit"
-                        className="inline-flex items-center py-2 px-4 text-xs font-medium text-center text-white bg-primary-700 rounded-lg focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-primary-800">
-                        Post comment
-                    </button>
-                    <h1 className="text-[#a41e1f]">{error}</h1>
-                </form>
+                {user ? 
+                    <form className="mb-6" onSubmit={handlePost}>
+                        <div className="py-2 px-4 mb-4 bg-[#f6f6f6] rounded-lg rounded-t-lg border border-gray-200 ">
+                            <label className="sr-only">Your comment</label>
+                            <textarea id="comment" rows="3"
+                                className="px-0 w-full text-sm text-gray-900 border-0 focus:ring-0 focus:outline-none bg-[#f6f6f6] dark:placeholder-black"
+                                placeholder="Write a comment..." onChange={handleChange} name="message" value={form.message}></textarea>
+                        </div>
+                        <button type="submit"
+                            className="inline-flex items-center py-2 px-4 text-xs font-medium text-center text-white bg-primary-700 rounded-lg focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-primary-800">
+                            Post comment
+                        </button>
+                        <h1 className="text-[#a41e1f]">{error}</h1>
+                    </form>
+                : null }
             </div>
-            <div className="max-w-2xl mx-auto px-4">
+            <div className="max-w-2xl mx-auto px-4 mb-10">
                 <div className="justify-self-center ">
                 {commentsList}
                 </div>

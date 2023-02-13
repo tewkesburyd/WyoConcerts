@@ -4,17 +4,17 @@ export default function DashboardList({ concert, buttonText, setUserList, userLi
     const [show, setShow] = useState({})
     
     useEffect(() => {
-        fetch(`/concerts/${concert.concert_id}`)
+        fetch(`/api/concerts/${concert.concert_id}`)
         .then((r) => {
             if(r.ok){
                 r.json()
                 .then((data) => setShow(data))
             }
         })
-    }, [])
+    }, [concert.concert_id])
 
     const handleDelete =  () => {
-        fetch(`/user_lists/${concert.id}`, {
+        fetch(`/api/user_lists/${concert.id}`, {
             method: 'DELETE',
         })
         .then((r) => {

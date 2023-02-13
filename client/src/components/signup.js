@@ -11,12 +11,11 @@ export default function Signup({ setLoggedIn }) {
         password: '',
         promotion_interest: true
         })
-        console.log(form)
 
     const handleSubmit = (e) => {
         e.preventDefault()
         setError([])
-        fetch('/signup', {
+        fetch('/api/signup', {
             method: 'POST',
             headers: {
                 "Content-Type" : "application/json"

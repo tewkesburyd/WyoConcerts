@@ -1,4 +1,4 @@
-class BandsController < ApplicationController
+class Api::BandsController < ApplicationController
   skip_before_action :authorize, only: [:index, :show]
   # GET /bands
   def index
