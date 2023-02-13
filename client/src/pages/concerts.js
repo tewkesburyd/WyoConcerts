@@ -12,7 +12,7 @@ export default function ConcertList(){
     // const [band, setBand] = useState('')
 
     useEffect(() => {
-        fetch('/concerts')
+        fetch('/api/concerts')
         .then((r) => {
             if(r.ok){
                 r.json()
@@ -33,15 +33,15 @@ export default function ConcertList(){
     const concertlist = concerts.map((concert) => <ConcertCard key={concert.id} concert={concert} imgSize="relative box-border border-4 max-w-187" />)
 
     return(
-        <div className="h-screen ">
+        <div className="">
             <div className="grid grid-cols-4 container min-w-full h-60">
                 <img src={JacksonHole2} alt="Jackson Hole Rendevous" className="h-60 w-full"/>
                 <img src={OysterRidge} alt="Jackson Hole Rendevous" className="h-60 w-full"/>
                 <img src={JacksonHole} alt="Jackson Hole Rendevous" className="h-60 w-full"/>
                 <img src={OysterRidge} alt="Jackson Hole Rendevous" className="h-60 w-full"/>
             </div>
-            <div className="relative flex container ">
-                <div className="w-1/4 flex justify-center border-r-2 mr-4 static ">
+            <div className="flex ">
+                <div className="w-1/4 justify-center border-r-2 mr-4 ">
                     <div className="flex justify-center mt-10 ">
                         <div className="mb-3 xl:w-50 justify-center ">
                             <label className="form-label inline-block mb-2 text-gray-700">Search</label>
@@ -50,11 +50,9 @@ export default function ConcertList(){
                         </div>
                     </div>
                 </div>
-                <div className="w-3/4 pl-20 mt-10 container relative">
-                    <div className="h-96 container overflow-y-auto">
-                        <div className="grid grid-cols-1 overflow-y-scroll h-100">
-                            {concertlist}
-                        </div>
+                <div className="w-3/4 pl-20 mt-10">
+                    <div className="h-auto overflow-y-auto">
+                        {concertlist}
                     </div>
                 </div>
             </div>

@@ -16,7 +16,7 @@ export default function AdminVenue(){
             // console.log('submit')
             e.preventDefault()
             setError([])
-            fetch('/venue', {
+            fetch('/api/venue', {
                 method: 'POST',
                 headers: {
                     "Content-Type" : "application/json"

@@ -1,6 +1,6 @@
 export default function ConcertListCard({ concert}) {
     return (
-        <a href={`/concerts/${concert?.id}`}>
+        <a href={`/concerts/${concert?.id}`} className="w-full">
             <div className="pl-1 mb-3 border border-y-grey border-x-white grid grid-cols-2 h-max dark:hover:bg-gray-100">
                 <div className="w-3/4">
                     <h3 className="font-bold">{concert.name}</h3>

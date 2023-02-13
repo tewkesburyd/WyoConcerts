@@ -9,11 +9,11 @@ export default function News() {
 
 
     return (
-        <div className='h-screen pt-10 w-5/6 mx-auto grid grid-cols-1 pb-10'>
+        <div className='h-full pt-10 w-5/6 mx-auto grid grid-cols-1 pb-20'>
             <h3 className="justify-self-start text-2xl text-[#43464b] font-bold font-['Georgia','Arial']">News</h3>
             <NewsCard id="section1" img={RendezvousLineUp} title="Jackson Hole Rendezvous" text={text}/>
             <NewsCard id="section2" img={TheFutureBirds} title="Show in Lander" text={text}/>
-            <NewsCard id="section3" img={CodyFestival} title="Songwriter Festival" text={text}/>
+            <NewsCard className="mb-20" id="section3" img={CodyFestival} title="Songwriter Festival" text={text}/>
         </div>
     )
 }

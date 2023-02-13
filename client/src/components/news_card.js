@@ -1,17 +1,38 @@
+import { useState } from 'react'
+
 export default function NewsCard({text, img, title}){
+    const [showMore, setShowMore] = useState(false)
+
     return (
-        <div className="h-100  mb-10">
+        <div className="mb-10">
             <div className="shadow-lg">
-                <div className="rounded ">
-                    <img className="float-left h-64 w-48 md:h-auto rounded pr-4" alt={title}src={img} />
+                {showMore === false ? 
+                <>
+                <div className='rounded w-full h-60 overflow-hidden' >
+                    <img className="float-left h-50 w-48 rounded pr-4" alt={title}src={img} />
                     <p className="mb-2 pl-5 text-xl text-[#43464b] font-bold font-['Georgia','Arial']">{title}</p>
-                    <p className="md:text-left text-m overflow-contain p-1">
+                    <p className="md:text-left text-m p-1  h-30">
                     {text}
                     </p>
                 </div>
-                {/* <div className="w-full lg:w-1/5 mt-6 lg:mt-0 lg:px-4 text-center md:text-left">
-                    <button className="bg-white hover:bg-grey-darker hover:text-white border border-solid border-grey w-1/3 lg:w-full py-2">Visit now</button>
-                </div> */}
+                <span className="w-full mt-6 lg:mt-0 text-center md:text-left">
+                    <button onClick={() => setShowMore(!showMore)} className="w-full shadow bg-[#013662] hover:[#a41e1f] focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded self-center">Show More</button>
+                </span>
+                </>
+                :
+                <>
+                <div className='rounded w-full h-auto'>
+                    <img className="float-left h-50 w-48 rounded pr-4" alt={title}src={img} />
+                    <p className="mb-2 pl-5 text-xl text-[#43464b] font-bold font-['Georgia','Arial']">{title}</p>
+                    <p className="md:text-left text-m p-1  h-30">
+                    {text}
+                    </p>
+                </div>
+                <span className="w-full mt-6 lg:mt-0 text-center md:text-left">
+                    <button onClick={() => setShowMore(!showMore)} className="w-full shadow bg-[#fe902d] hover:[#a41e1f] focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded self-center">Show Less</button>
+                </span>
+                </>
+                }
             </div>
         </div>
     )

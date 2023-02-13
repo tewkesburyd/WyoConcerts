@@ -1,4 +1,4 @@
-class UserListsController < ApplicationController
+class Api::UserListsController < ApplicationController
   before_action :set_user_list, only: %i[ show update destroy ]
 
   # GET /user_lists

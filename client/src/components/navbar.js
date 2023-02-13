@@ -6,7 +6,7 @@ import facebook from '../assets/logos/facebook.png';
 
 export default function Navbar(){
     return (
-        <span className="">
+        <span className="bg-white">
         <div className="h-30">
             <div className="flex">
                 <div className="h-20 container flex justify-center">

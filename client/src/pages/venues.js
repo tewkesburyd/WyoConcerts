@@ -6,7 +6,7 @@ export default function VenueList({user}) {
     const [location, setLocation] = useState('')
 
     useEffect(() => {
-        fetch('/venues')
+        fetch('/api/venues')
         .then((r) => {
             if(r.ok){
                 r.json()

@@ -15,7 +15,7 @@ export default function AdminConcertEdit( {concert, id} ) {
         const handleFormUpdate = (e) => {
             e.preventDefault()
             setError([])
-            fetch(`/concerts/${id}`, {
+            fetch(`/api/concerts/${id}`, {
                 method: 'PATCH',
                 headers: {
                     "Content-Type": "application/json"

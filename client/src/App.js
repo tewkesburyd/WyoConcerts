@@ -17,24 +17,25 @@ function App() {
   const [user, setUser] = useState(null)
 
   useEffect(()=> {
-    fetch(`/me`)
+    fetch(`/api/me`)
     .then(r => {
         if(r.ok){
             r.json()
             .then(data => {
                 setUser(data)
+                console.log(data)
             })
         } 
         })
     }, [])
 
   return (
-    <div className="flex flex-col h-screen">
-        <div className="w-full sticky top-0 ">
+    <div className="flex flex-col ">
+        <div className="w-full sticky top-0 block bg-white">
           <Navbar />
         </div>
       <BrowserRouter>
-        <div className="flex-1 overflow-y-scroll">
+        <div className="flex-1 overflow-y-scroll h-full">
           <Switch>
             <Route path='/concerts/:id' exact render={() => <Concert user={user} />} />
             <Route path='/concerts' exact component={ConcertList}/>

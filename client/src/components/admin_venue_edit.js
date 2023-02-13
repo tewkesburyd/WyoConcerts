@@ -15,7 +15,7 @@ export default function AdminVenueEdit( { venue }){
         const handleVenueUpdate = (e) => {
             e.preventDefault()
             setError([])
-            fetch(`/venues/${venue.id}`, {
+            fetch(`/api/venues/${venue.id}`, {
                 method: 'PATCH',
                 headers: {
                     "Content-Type" : "application/json"

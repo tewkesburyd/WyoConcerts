@@ -1,7 +1,13 @@
-export default function CommentCard({ comment, setPosts, posts }){
+import { useState } from 'react';
+
+export default function CommentCard({ comment, setPosts, posts, user }){
+    const [form, setForm] = useState({
+        message: ''
+    })
+    console.log(comment)
 
     const handleDelete = () => {
-        fetch(`/posts/${comment.id}`, {
+        fetch(`/api/posts/${comment.id}`, {
             method: 'DELETE'
         })
         .then((r) => {
@@ -9,6 +15,16 @@ export default function CommentCard({ comment, setPosts, posts }){
                 r.json()
                 setPosts(posts.filter(post => post.id !== comment.id))
             }
+        })
+    }
+    const handleEdit = () => {
+        fetch(`/api/posts/${comment.id}`, {
+            method: 'PATCH',
+            headers: {"Content-Type": "application/json"},
+            body: JSON.stringify(form)
+        })
+        .then((r) => {
+            r.json()
         })
     }
 
@@ -21,6 +37,7 @@ export default function CommentCard({ comment, setPosts, posts }){
                 <p className="text-sm text-gray-600 dark:text-gray-400">{comment.message}</p>
             </div>
             <div className="border-l w-30 justify-center shadow ">
+                {user.id === comment.user.id ? 
                 <ul className="py-1 text-sm text-gray-700 dark:text-gray-200">
                     <li className="">
                         <button className="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Edit</button>
@@ -29,6 +46,7 @@ export default function CommentCard({ comment, setPosts, posts }){
                         <button onClick={handleDelete} className="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Remove</button>
                     </li>
                 </ul>
+                : null}
             </div>
         </footer>
         <p className="text-gray-500 dark:text-gray-400"></p>
