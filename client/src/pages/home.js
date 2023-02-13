@@ -8,6 +8,7 @@ import NewsThumbnail from '../components/news_thumbnail'
 import RendezvousLineUp from './../assets/images/RendezvousLineUp.jpeg';
 import TheFutureBirds from './../assets/images/TheFutureBirds.jpeg';
 import CodyFestival from './../assets/images/CodyFestival.jpeg';
+import Sheriden from './../assets/images/Sheriden.jpeg';
 
 
 export default function Home() {
@@ -46,19 +47,10 @@ export default function Home() {
 
     const freeConcertList = freeConcerts.map((freeConcert) => <ConcertCard key={freeConcert.id} concert={freeConcert} />);
 
-    const currentDateToString = () =>{
-        if(currentMonth + 1 < 10 ){
-            const monthString = (currentMonth + 1).toString()
-            return `0${monthString}`
-        } else {
-            return (currentMonth + 1).toString()
-        }
-    }
-
     const filteredConcerts = (
         concerts.filter((concert)=> {
             return (
-                concert.date.slice(4,6) === currentDateToString() ? concert : null
+                concert.date.slice(0,2) == currentMonth + 1 ? concert : null
             )
         })
     )
@@ -69,10 +61,10 @@ export default function Home() {
     return (
         <div className="min-h-screen ">
             <div className="grid grid-cols-4 h-60">
-                <img src={LanderPresents} alt='Lander Presents' className="h-60 w-full"/>
-                <img src={FrontierDays} alt='Fontier Days' className="h-60 w-full"/>
+                <img src={FrontierDays} alt='Lander Presents' className="h-60 w-full"/>
+                <img src={LanderPresents} alt='Fontier Days' className="h-60 w-full"/>
                 <img src={LanderBar} alt='Lander Bar' className="h-60 w-full"/>
-                <img src={LanderPresents} alt='Lander Presents' className="h-60 w-full"/>
+                <img src={Sheriden} alt='Lander Presents' className="h-60 w-full"/>
             </div>
             <div className="py-10 w-2/3 m-auto flex justify-center grid grid-cols-1">
                 <h3 className="justify-self-start text-2xl text-[#43464b] font-bold font-['Georgia','Arial'] mb-4">News</h3>

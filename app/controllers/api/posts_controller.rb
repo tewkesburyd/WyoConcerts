@@ -21,13 +21,18 @@ class Api::PostsController < ApplicationController
 
   # PATCH/PUT /posts/1
   def update
-    @post.update!(post_params)
-    render json: @post, status: :accepted
+    if @post.user == @current_user
+      @post.update!(post_params)
+      render json: @post, status: :accepted
+    else 
+      render json: {error: "Error"}
+    end
   end
 
   # DELETE /posts/1
   def destroy
     @post.destroy
+    head :no_content
   end
 
   private
