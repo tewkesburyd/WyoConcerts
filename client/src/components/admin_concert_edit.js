@@ -1,7 +1,6 @@
 import { useState } from 'react';
 
 export default function AdminConcertEdit( {concert, id} ) {
-    // const [concert, setConcert] = useState({})
     const [error, setError] = useState([])
     const [form, setForm] = useState({
         name: concert.name,

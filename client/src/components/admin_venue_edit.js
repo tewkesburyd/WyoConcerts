@@ -6,12 +6,12 @@ export default function AdminVenueEdit( { venue }){
         name: `${venue.name}`,
         address: `${venue.address}`,
         city: `${venue.city}`,
-        zip: venue.zip,
+        zip: venue.zip || "",
         state: `${venue.state}`,
         description: `${venue.description}`,
-        website: `${venue.website}`
+        website: `${venue.website}` 
         })
-
+        console.log(form)
         const handleVenueUpdate = (e) => {
             e.preventDefault()
             setError([])

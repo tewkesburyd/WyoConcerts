@@ -22,7 +22,7 @@ export default function VenueList({user}) {
     const venuelist = filterVenues.map((venue) => <VenueCard key={venue.id} venue={venue} user={user}/>)
 
     return (
-        <div className='h-screen grid'>
+        <div className='h-auto grid pb-20'>
             <div className="grid place-items-center justify-self-center px-20 pt-10 pb-5 border-b-2 border-gray-700 w-3/4">
                 <p className="text-center px-40  ">Wyoming is a big state. With many local bars hosting live music, it’s difficult to include all concerts and venues. In order to simplify finding a venue, we included some of the larger cities and towns. If the area you are look for in not include, please check out the miscellaneous category.</p>
             </div>
