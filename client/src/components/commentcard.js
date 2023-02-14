@@ -4,7 +4,6 @@ export default function CommentCard({ comment, setPosts, posts, user }){
     const [form, setForm] = useState({
         message: ''
     })
-    console.log(comment)
 
     const handleDelete = () => {
         fetch(`/api/posts/${comment.id}`, {
@@ -37,7 +36,7 @@ export default function CommentCard({ comment, setPosts, posts, user }){
                 <p className="text-sm text-gray-600 dark:text-gray-400">{comment.message}</p>
             </div>
             <div className="border-l w-30 justify-center shadow ">
-                {user.id === comment.user.id ? 
+                {user?.id === comment.user.id ? 
                 <ul className="py-1 text-sm text-gray-700 dark:text-gray-200">
                     <li className="">
                         <button className="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Edit</button>

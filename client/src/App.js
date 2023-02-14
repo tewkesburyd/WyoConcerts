@@ -16,6 +16,14 @@ import { useState, useEffect } from 'react';
 function App() {
   const [user, setUser] = useState(null)
 
+  const addRsvp = (userList) => {
+    setUser({...user, user_lists: [...user.user_lists, {id: userList.id, concert_id: userList.concert.id, user_id: userList.user.id}]})
+  }
+
+  const removeRsvp = (userList) => {
+    setUser({...user, user_lists: user.user_lists.filter(uList => userList.id != uList.id)})
+  }
+
   useEffect(()=> {
     fetch(`/api/me`)
     .then(r => {
@@ -23,7 +31,6 @@ function App() {
             r.json()
             .then(data => {
                 setUser(data)
-                console.log(data)
             })
         } 
         })
@@ -37,7 +44,7 @@ function App() {
       <BrowserRouter>
         <div className="flex-1 overflow-y-scroll h-full">
           <Switch>
-            <Route path='/concerts/:id' exact render={() => <Concert user={user} />} />
+            <Route path='/concerts/:id' exact render={() => <Concert user={user} addRsvp={addRsvp} removeRsvp={removeRsvp} />} />
             <Route path='/concerts' exact component={ConcertList}/>
             <Route path='/venues' render={() => <VenueList user={user} />}/>
             <Route path='/news' component={News}/>

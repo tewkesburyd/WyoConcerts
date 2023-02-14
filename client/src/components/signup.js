@@ -26,7 +26,7 @@ export default function Signup({ setLoggedIn }) {
             if(r.ok) {
                 r.json().then((user) => console.log(user))
                 setLoggedIn(true)
-                history.replace('/dasboard')
+                history.replace('/dashboard')
             } else {
                 r.json().then((error) => setError(error.error))
             }

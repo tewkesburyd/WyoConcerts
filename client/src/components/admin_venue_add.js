@@ -6,7 +6,7 @@ export default function AdminVenue(){
         name: '',
         address: '',
         city: '',
-        zip: null,
+        zip: "",
         state: '',
         description: '',
         website: ''

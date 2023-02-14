@@ -4,14 +4,13 @@ import edit from './../assets/logos/edit.png';
 import CommentSection from '../components/commentsection';
 import AdminConcertEdit from '../components/admin_concert_edit';
 
-export default function Concert({ user }) {
+export default function Concert({ user, addRsvp, removeRsvp }) {
     let { id } = useParams()
 
     const [concert, setConcert] = useState({})
     const [error, setError] = useState(null)
     const [posts, setPosts] = useState([])
     const [formIsShown, setFormIsShown] = useState(false)
-    const [isClicked, setIsClicked] = useState(false)
 
     useEffect(() => {
         fetch(`/api/concerts/${id}`)
@@ -38,23 +37,23 @@ export default function Concert({ user }) {
         })
         .then((r) => {
             if(r.ok){
-                r.json()
+                r.json().then(addRsvp)
             } else {
                 if(r.status === 401){
                     setError("Must be signed in")
                 }
             }
         })
-        .then(setIsClicked(true))
     }
 
     const userListFilter = user?.user_lists.find((list) => list.concert_id == id ? list.concert_id : null)
 
     const handleDelete =  () => {
-        fetch(`/api/user_lists/${userListFilter?.id}`, {
+        fetch(`/api/user_lists/${userListFilter.id}`, {
             method: 'DELETE',
         })
-        .then(setIsClicked(false))
+
+        .then(removeRsvp(userListFilter))
     }    
 
     return (
@@ -83,7 +82,7 @@ export default function Concert({ user }) {
                         </p>
                     </div>
                     <div>
-                        {isClicked ==false && userListFilter?.concert_id != id ? 
+                        {userListFilter?.concert_id != id ? 
                             <button onClick={handleClick} className="shadow bg-[#013662] hover:[#a41e1f] focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded self-center">
                             Add to RSVP List
                             </button> 
