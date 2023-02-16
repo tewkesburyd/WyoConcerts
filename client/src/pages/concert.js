@@ -52,7 +52,6 @@ export default function Concert({ user, addRsvp, removeRsvp }) {
         fetch(`/api/user_lists/${userListFilter.id}`, {
             method: 'DELETE',
         })
-
         .then(removeRsvp(userListFilter))
     }    
 
@@ -60,7 +59,7 @@ export default function Concert({ user, addRsvp, removeRsvp }) {
         <div className="">
             <div className="p-10 flex grid ">
                 <div className="lg:max-w-full lg:flex h-500 w-500 grid grid-cols-2">
-                    <img className="object-contain w-500 h-500  md:max-w-xl" src={concert.image} alt={concert.name} />
+                    <img className="object-contain overflow-hidden w-500 h-500  md:max-w-xl" src={concert.image} alt={concert.name} />
                     <div className="pl-4">
                         <h1 className="text-2xl text-[#43464b] font-bold font-['Georgia','Arial'] mb-4 tracking-tight pr-2 ">
                         {concert.name}
@@ -75,7 +74,7 @@ export default function Concert({ user, addRsvp, removeRsvp }) {
                         Cost: ${concert.price}
                         </p>
                             {user?.admin === true ? <img src={edit} alt="edit" className="h-8" onClick={() => setFormIsShown(!formIsShown)}></img> : null}
-                            {formIsShown === true ? <AdminConcertEdit concert={concert} id={id}/> : null}
+                            {formIsShown === true ? <AdminConcertEdit setConcert={setConcert} concert={concert} id={id} setFormIsShown={setFormIsShown}/> : null}
                     </div>
                 </div>
                 <div className=" border-b border-l border-gray-400 lg:border-l-0 lg:border-t lg:border-gray-400 bg-white p-4 w-full">

@@ -20,11 +20,11 @@ class Api::UserListsController < ApplicationController
     render json: @user_list, status: :created
   end
 
-  # PATCH/PUT /user_lists/1
-  def update
-    @user_list.update!(user_list_params)
-    render json: @user_list, status: :accepted
-  end
+  # # PATCH/PUT /user_lists/1
+  # def update
+  #   @user_list.update!(user_list_params)
+  #   render json: @user_list, status: :accepted
+  # end
 
   # DELETE /user_lists/1
   def destroy

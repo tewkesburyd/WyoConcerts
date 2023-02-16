@@ -19,7 +19,7 @@ export default function VenueList({user}) {
 
     const filterVenues = venues.filter((venue) => venue.city.toLowerCase().includes(location.toLowerCase())? venue : null)
 
-    const venuelist = filterVenues.map((venue) => <VenueCard key={venue.id} venue={venue} user={user}/>)
+    const venuelist = filterVenues.map((venue) => <VenueCard key={venue.id} venue={venue} venues={venues} setVenues={setVenues} user={user}/>)
 
     return (
         <div className='h-auto grid pb-20'>

@@ -13,7 +13,7 @@ export default function News() {
             <h3 className="justify-self-start text-2xl text-[#43464b] font-bold font-['Georgia','Arial']">News</h3>
             <NewsCard id="section1" img={RendezvousLineUp} title="Jackson Hole Rendezvous" text={text}/>
             <NewsCard id="section2" img={TheFutureBirds} title="Show in Lander" text={text}/>
-            <NewsCard className="mb-20" id="section3" img={CodyFestival} title="Songwriter Festival" text={text}/>
+            <NewsCard id="section3" className="mb-20" img={CodyFestival} title="Songwriter Festival" text={text}/>
         </div>
     )
 }

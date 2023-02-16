@@ -1,35 +1,59 @@
 import { useState } from 'react';
+import deleteIcon from '../assets/logos/deleteIcon.png'
 
-export default function AdminVenueEdit( { venue }){
+export default function AdminVenueEdit( { venue, setVenues, venues, setIsForm }){
     const [error, setError] = useState([])
     const [form, setForm] = useState({
-        name: `${venue.name}`,
-        address: `${venue.address}`,
-        city: `${venue.city}`,
+        name: venue.name,
+        address: venue.address,
+        city: venue.city,
         zip: venue.zip || "",
-        state: `${venue.state}`,
-        description: `${venue.description}`,
-        website: `${venue.website}` 
+        state: venue.state,
+        description: venue.description,
+        website: venue.website 
         })
-        console.log(form)
-        const handleVenueUpdate = (e) => {
-            e.preventDefault()
-            setError([])
-            fetch(`/api/venues/${venue.id}`, {
-                method: 'PATCH',
-                headers: {
-                    "Content-Type" : "application/json"
-                },
-                body: JSON.stringify(form)
-            })
-            .then((r) => {
-                if(r.ok) {
-                    r.json().then((user) => console.log(user))
-                } else {
-                    r.json().then((error) => setError(error.error))
-                }
-            })
-        }
+
+    const handleVenueUpdate = (e) => {
+        e.preventDefault()
+        setError([])
+        fetch(`/api/venues/${venue.id}`, {
+            method: 'PATCH',
+            headers: {
+                "Content-Type" : "application/json"
+            },
+            body: JSON.stringify(form)
+        })
+        .then((r) => {
+            if(r.ok) {
+                r.json().then((data) => {
+                    setIsForm(false)
+                    setVenues(venues.map(v => {
+                        if (v.id === data.id) {
+                            return data
+                        } else {
+                            return v
+                        }
+                    }))
+                })
+            } else {
+                r.json().then((error) => setError(error.error))
+            }
+        })
+    }
+
+    const handleVenueDelete = () =>{
+        fetch(`/api/venues/${venue.id}`, {
+            method: 'DELETE'
+        })
+        .then((r) => {
+            if(r.ok){
+                r.json()
+                setVenues(venues.filter(v => v.id !== venue.id))
+            } else {
+                console.log(r.error)
+            }
+        })
+    }
 
     const handleChange = (e) => {
         setForm({...form, [e.target.name]: e.target.value})
@@ -102,16 +126,27 @@ export default function AdminVenueEdit( { venue }){
                     </div>
                 </div>
                 <span className="flex flex-row pt-4">
+                    <div className="justify-self-start">
+                        <label className="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4" >
+                        Description
+                        </label>
+                    </div>
+                    <div className="md:w-full justify-self-start">
+                        <input className="bg-gray-200 appearance-none border-2 border-gray-200 rounded min-w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500" name="description"  onChange={handleChange} value={form.description} placeholder="description" />
+                    </div>
+                </span>
+                    <div className="flex flex-row pt-4">
                         <div className="justify-self-start">
                             <label className="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4" >
-                            Description
+                            Delete Venue
                             </label>
                         </div>
-                        <div className="md:w-full justify-self-start">
-                            <input className="bg-gray-200 appearance-none border-2 border-gray-200 rounded min-w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500" name="description"  onChange={handleChange} value={form.description} placeholder="description" />
+                        <div className="md:w-2/3 mb-2">
+                            <button onClick={handleVenueDelete}>
+                                <img src={deleteIcon} className="w-5 h-5"/>
+                            </button>
                         </div>
-                    </span>
-                    
+                    </div>
                 </div>
                 <div className="grid grid-cols-1 ">
                     <div className="justify-self-center mt-5">

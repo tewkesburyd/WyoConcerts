@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-export default function AdminVenue(){
+export default function AdminVenue({setFormIsShown}){
     const [error, setError] = useState([])
     const [form, setForm] = useState({
         name: '',
@@ -16,7 +16,7 @@ export default function AdminVenue(){
             // console.log('submit')
             e.preventDefault()
             setError([])
-            fetch('/api/venue', {
+            fetch('/api/venues', {
                 method: 'POST',
                 headers: {
                     "Content-Type" : "application/json"
@@ -26,6 +26,7 @@ export default function AdminVenue(){
             .then((r) => {
                 if(r.ok) {
                     r.json().then((user) => console.log(user))
+                    setFormIsShown(false)
                 } else {
                     r.json().then((error) => setError(error.error))
                 }

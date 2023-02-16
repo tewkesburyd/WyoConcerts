@@ -56,21 +56,17 @@ export default function ConcertList(){
                 <div className="flex justify-center mt-10 ">
                     <aside className="mb-3 xl:w-50 justify-center h-screen fixed top-50">
                         <label className="form-label inline-block mb-2 text-gray-700">Search</label>
-                        <input onChange={(e) => setBand(e.target.value)} className="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" placeholder="Search by band"/>
-                        <input onChange={(e) => setLocation(e.target.value)} className="mt-2 form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" placeholder="Search by city"/>
-                        <input onChange={(e) => setMonth(e.target.value)} className="mt-2 form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" placeholder="Search by month"/>
-                        <button onClick={() => {setMonth('')
-                                                setLocation('')
-                                                setBand('')
-                                                }}
-                                                className="mt-5 shadow bg-[#013662]  focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded" >
+                        <input onChange={(e) => setBand(e.target.value)} value={band}className="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" placeholder="Search by band"/>
+                        <input onChange={(e) => setLocation(e.target.value)} value={location} className="mt-2 form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" placeholder="Search by city"/>
+                        <input onChange={(e) => setMonth(e.target.value)} value={month} className="mt-2 form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" placeholder="Search by month"/>
+                        <button onClick={() => (setMonth(''), setLocation(''), setBand(''))} className="mt-5 shadow bg-[#013662]  focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded" >
                         Clear
                         </button>
                     </aside>
                 </div>
             </div>
             <div className="w-3/4 pl-20 mt-10 flex float-right overflow-y-auto">
-                <div className="h-screen overflow-y-auto">
+                <div className="h-screen overflow-y-auto mb-20">
                     {concertlist}
                 </div>
             </div>

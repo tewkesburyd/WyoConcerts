@@ -1,18 +1,18 @@
 class Api::ConcertsController < ApplicationController
   skip_before_action :authorize, only: [:index, :show, :freeConcerts]
-  before_action :set_concert, except: [:index, :freeConcerts]
+  before_action :set_concert, except: [:index, :freeConcerts, :create]
 
   # GET /concerts
   def index
-    concert = Concert.all
-    concert.order(date: :asc)
+    # concert = Concert.all
+    concert = Concert.order(date: :asc)
     render json: concert
   end
 
   def freeConcerts
     concerts = Concert.where(price: "free")
-    concerts.order(date: :desc)
-    render json: concerts
+    orderedConcerts = concerts.order(date: :asc)
+    render json: orderedConcerts
   end
 
   # GET /concerts/1

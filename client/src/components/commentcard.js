@@ -27,11 +27,18 @@ export default function CommentCard({ comment, setPosts, posts, user }){
     //     })
     // }
 
+
+    const date = new Date();
+    let day = date.getDate()
+    let month = date.getMonth()
+    let year = date.getFullYear()
+
     return (
         <div className="p-6 mb-6 text-base bg-white rounded-lg dark:bg-gray-900 w-full">
         <footer className="flex justify-between items-center">
             <div className="grid items-center">
                 <p className="inline-flex items-center mr-3 text-sm text-gray-900 dark:text-white">{comment.user.username}</p>
+                <p className="inline-flex items-center mr-3 text-sm text-sm text-gray-600 dark:text-gray-400">{month}/{day}/{year}</p>
                 <p className="text-sm text-gray-600 dark:text-gray-400">{comment.message}</p>
             </div>
             <div className="border-l w-30 justify-center shadow ">

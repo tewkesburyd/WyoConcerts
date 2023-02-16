@@ -2,7 +2,7 @@ import { useState } from 'react';
 import AdminVenueEdit from './admin_venue_edit';
 import edit from './../assets/logos/edit.png';
 
-export default function VenueCard({ venue, user }) {
+export default function VenueCard({ venue, user, setVenues, venues }) {
     const [isForm, setIsForm] = useState(false)
 
     return (
@@ -22,7 +22,7 @@ export default function VenueCard({ venue, user }) {
         </div>
             {user?.admin === true ? 
                 <div>
-                    {isForm === true ? <AdminVenueEdit venue={venue}/> : null}
+                    {isForm === true ? <AdminVenueEdit venue={venue} setVenues={setVenues} venues={venues} setIsForm={setIsForm}/> : null}
                 </div> 
                 : null}
         </div>

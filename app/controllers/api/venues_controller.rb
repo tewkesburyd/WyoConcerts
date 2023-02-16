@@ -14,7 +14,7 @@ before_action :set_venue, only: [:update, :destroy]
 
   # POST /venues
   def create
-    @venue = Venue.Create!(venue_params)
+    @venue = Venue.create!(venue_params)
     render json: @venue, status: :created
   end
 

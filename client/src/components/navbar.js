@@ -17,7 +17,7 @@ export default function Navbar(){
                         </h1>
                     </a>
                 </div>
-                <div className="flex pr-5 self-center gap-2">
+                <div className="flex pr-10 self-center gap-2">
                     <h3 className="pt-1 pr-1">
                         Follow
                     </h3>
