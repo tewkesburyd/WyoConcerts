@@ -1,4 +1,4 @@
-import user from '../assets/logos/user.png';
+import account from '../assets/logos/account.png';
 import wyomingflag from '../assets/logos/wyomingflag.png';
 import twitter from '../assets/logos/twitter.png';
 import instagram from '../assets/logos/instagram.png';
@@ -26,7 +26,7 @@ export default function Navbar(){
                     <img src={instagram} alt="instagram" className=" w-8 mr-2"></img>
                 </div>
             </div>
-            <div className="h-12 bg-[#fe902d] flex flex-row justify-end pr-20">
+            <div className="h-12 pb-2 bg-[#013662] flex flex-row justify-end pr-20 border border-2 border-neutral-50 border-t-0 border-l-0 border-r-0 border-b-1">
                 <ul className="grid gap-x-7 grid-cols-4 ">
                     <li>
                         <a href="/concerts" className="py-3 self-center block text-white hover:text-black">Concerts</a>
@@ -39,7 +39,7 @@ export default function Navbar(){
                     </li>
                     <li>
                         <a href="/dashboard" className="py-3 block ">
-                        <img src={user} alt="user" className="h-7" />
+                        <img src={account} alt="user" className="h-7" />
                         </a>
                     </li>
                 </ul>

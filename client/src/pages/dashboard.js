@@ -4,11 +4,13 @@ import Logout from '../components/logout'
 import DashboardList from '../components/dashboardlist';
 import Admin from '../components/admin';
 import Calendar from 'react-calendar';
+import 'react-calendar/dist/Calendar.css';
 
 export default function Dashboard() {
     const history = useHistory()
     const [user, setUser] =useState(null)
     const [userList, setUserList] = useState([])
+    
 
     useEffect(()=> {
     fetch(`/api/me`)

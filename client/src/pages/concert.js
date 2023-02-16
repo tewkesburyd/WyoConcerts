@@ -57,30 +57,30 @@ export default function Concert({ user, addRsvp, removeRsvp }) {
     }    
 
     return (
-        <div className="h-screen grid grid-cols-1">
-            <div className="p-10 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-1 xl:grid-cols-3 gap-5">
-                <div className="lg:max-w-full lg:flex ">
-                    <img className="object-cover w-full md:flex-row md:max-w-xl" src={concert.image} alt={concert.name} />
-                </div>
-                <div className="w-full border-b border-l border-gray-400 lg:border-l-0 lg:border-t lg:border-gray-400 bg-white p-4 flex flex-col justify-between leading-normal">
-                    <div className="mb-8" >
-                        <div className="flex">
-                            <h1 className="text-2xl text-[#43464b] font-bold font-['Georgia','Arial'] mb-4 tracking-tight pr-2 ">
-                            {concert.name}
-                            </h1>
-                            {user?.admin === true ? <img src={edit} alt="edit" className="h-8" onClick={() => setFormIsShown(!formIsShown)}></img> : null}
-                            {formIsShown === true ? <AdminConcertEdit concert={concert} id={id}/> : null}
-                        </div>
+        <div className="">
+            <div className="p-10 flex grid ">
+                <div className="lg:max-w-full lg:flex h-500 w-500 grid grid-cols-2">
+                    <img className="object-contain w-500 h-500  md:max-w-xl" src={concert.image} alt={concert.name} />
+                    <div className="pl-4">
+                        <h1 className="text-2xl text-[#43464b] font-bold font-['Georgia','Arial'] mb-4 tracking-tight pr-2 ">
+                        {concert.name}
+                        </h1>
                         <a href={concert.website}>
-                        Concert Details
+                            Details
                         </a>
                         <p>
-                        {concert.date}
+                        {concert.date?.slice(0,2)}/{concert.date?.slice(2,4)}/{concert.date?.slice(4,8)}
                         </p>
                         <p>
-                        {concert.price}
+                        Cost: ${concert.price}
                         </p>
+                            {user?.admin === true ? <img src={edit} alt="edit" className="h-8" onClick={() => setFormIsShown(!formIsShown)}></img> : null}
+                            {formIsShown === true ? <AdminConcertEdit concert={concert} id={id}/> : null}
                     </div>
+                </div>
+                <div className=" border-b border-l border-gray-400 lg:border-l-0 lg:border-t lg:border-gray-400 bg-white p-4 w-full">
+                        
+                        <p>{concert.description}</p>
                     <div>
                         {userListFilter?.concert_id != id ? 
                             <button onClick={handleClick} className="shadow bg-[#013662] hover:[#a41e1f] focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded self-center">
