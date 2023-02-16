@@ -16,7 +16,6 @@ export default function Admin() {
         })
 
         const handleSubmit = (e) => {
-            // console.log('submit')
             e.preventDefault()
             // setError([])
             fetch('/api/concerts', {
@@ -28,7 +27,7 @@ export default function Admin() {
             })
             .then((r) => {
                 if(r.ok) {
-                    r.json().then((user) => console.log(user))
+                    r.json().then((data) => console.log(data))
                 } else {
                     r.json().then((error) => {
                         console.log(error.error)
@@ -51,7 +50,7 @@ export default function Admin() {
             <div className="flex">
                 <img src={add} alt="add" className="max-h-6" onClick={()=>setVenue(!venue)}></img>
                 <h3>Venue</h3>
-                {venue === true ? <AdminVenue /> : null}
+                {venue === true ? <AdminVenue setFormIsShown={setFormIsShown}/> : null}
                 
             </div>
             <div className="flex">

@@ -29,7 +29,7 @@ export default function NewsCard({text, img, title}){
                     </p>
                 </div>
                 <span className="w-full mt-6 lg:mt-0 text-center md:text-left">
-                    <button onClick={() => setShowMore(!showMore)} className="w-full shadow bg-[#fe902d] hover:[#a41e1f] focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded self-center">Show Less</button>
+                    <button onClick={() => setShowMore(!showMore)} className="w-full shadow bg-[#013662] hover:[#a41e1f] focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded self-center">Show Less</button>
                 </span>
                 </>
                 }

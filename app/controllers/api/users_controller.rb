@@ -2,10 +2,10 @@ class Api::UsersController < ApplicationController
   skip_before_action :authorize, only: [:create, :index]
   before_action :set_user, only: [:update, :destroy]
 
-  # GET /users
-  def index
-    render json: User.all
-  end
+  # # GET /users
+  # def index
+  #   render json: User.all
+  # end
 
   # GET /users/1
   def show
@@ -19,17 +19,17 @@ class Api::UsersController < ApplicationController
     render json: user
   end
 
-  # PATCH/PUT /users/1
-  def update
-    @user.update!(user_params)
-    render json: @user, status: :accepted
-  end
+  # # PATCH/PUT /users/1
+  # def update
+  #   @user.update!(user_params)
+  #   render json: @user, status: :accepted
+  # end
 
-  # DELETE /users/1
-  def destroy
-    @user.destroy
-    head :no_content
-  end
+  # # DELETE /users/1
+  # def destroy
+  #   @user.destroy
+  #   head :no_content
+  # end
 
   private
     # Use callbacks to share common setup or constraints between actions.

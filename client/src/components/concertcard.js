@@ -1,11 +1,10 @@
 import location from '../assets/logos/location.png';
 
 export default function ConcertCard({ concert, imgSize }) {
+    const date = new Date();
 
     function getMonthName(monthNumber) {
-        const date = new Date();
         date.setMonth(monthNumber - 1);
-      
         return date.toLocaleString('en-US', { month: 'short' });
       }
 

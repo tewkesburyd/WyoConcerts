@@ -8,7 +8,7 @@ Rails.application.routes.draw do
       resources :venues, only: [:show]
     end
     resources :venues
-    resources :bands
+    # resources :bands
     resources :users, only: [:show, :update] #remove index, destroy
 
     get "/me", to: "users#show"

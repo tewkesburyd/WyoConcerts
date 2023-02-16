@@ -76,9 +76,9 @@ export default function Home() {
             </div>
             <div className="mb-20">
                 <div className="pt-10 m-auto grid grid-cols-2 w-5/6">
-                    <div className="">
+                    <div className="h-96">
                         <h3 className="justify-self-start text-2xl text-[#43464b] font-bold font-['Georgia','Arial'] mb-4">Free Concerts</h3>
-                        <div className="w-full">
+                        <div className="w-full h-full overflow-y-scroll">
                         {freeConcertList}
                         </div>
                     </div>
