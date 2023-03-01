@@ -1,9 +1,12 @@
 import { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import add from './../assets/logos/add.png'
 import AdminVenue from "./admin_venue_add";
 import AdminConcert from "./admin_concert_add";
 
 export default function Admin() {
+    const history = useHistory()
+
     const [venue, setVenue] = useState(false)
     const [formIsShown, setFormIsShown] = useState(false)
     const [form, setForm] = useState({
@@ -27,7 +30,8 @@ export default function Admin() {
             })
             .then((r) => {
                 if(r.ok) {
-                    r.json().then((data) => console.log(data))
+                    r.json()
+                    history.replace("/venues")
                 } else {
                     r.json().then((error) => {
                         console.log(error.error)
