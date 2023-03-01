@@ -1,8 +1,6 @@
-// import { useState } from 'react';
 
 export default function AdminConcert( {handleForm, form, setForm} ) {
-    // const [concert, setConcert] = useState({})
-    // const [error, setError] = useState([])
+
 
     const handleChange = (e) => {
         setForm({...form, [e.target.name]: e.target.value})

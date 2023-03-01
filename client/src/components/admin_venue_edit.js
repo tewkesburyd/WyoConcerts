@@ -47,8 +47,13 @@ export default function AdminVenueEdit( { venue, setVenues, venues, setIsForm })
         })
         .then((r) => {
             if(r.ok){
-                r.json()
-                setVenues(venues.filter(v => v.id !== venue.id))
+                r.json().then((data) => {
+                setVenues(venues.map((v) => {
+                    if (v.id !== venue.id) {
+                        return v
+                    } 
+                }))
+            })
             } else {
                 console.log(r.error)
             }
