@@ -1,7 +1,7 @@
-# Concert.destroy_all
+Concert.destroy_all
 # User.destroy_all
 # Band.destroy_all
-# Venue.destroy_all
+Venue.destroy_all
 
 
 # User.create!(admin: true, email: 'test', password: 'test', promotion_interest: false, username: 'David')
