@@ -1,6 +1,6 @@
 Concert.destroy_all
 User.destroy_all
-# Band.destroy_all
+Band.destroy_all
 Venue.destroy_all
 
 
