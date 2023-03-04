@@ -6,51 +6,42 @@ Venue.destroy_all
 
 User.create!(admin: true, email: 'test', password: 'test', promotion_interest: false, username: 'David')
 
-const fordCenter = Venue.create!(name: 'Ford Wyoming Center', address: '', city: 'Casper', zip: , state: 'WY', description: 'The Ford Wyoming Center (formerly known as the Casper Events Center) is a multi-purpose arena in Casper, Wyoming, in the United States. The arena was built in April 1982. It seats 8,395 for ice hockey and indoor football games, 8,842 for basketball games, and up to 9,700 for concerts', website: '')
+fordCenter = Venue.create!(name: 'Ford Wyoming Center', address: '', city: 'Casper', zip: 307, state: 'WY', description: 'The Ford Wyoming Center (formerly known as the Casper Events Center) is a multi-purpose arena in Casper, Wyoming, in the United States. The arena was built in April 1982. It seats 8,395 for ice hockey and indoor football games, 8,842 for basketball games, and up to 9,700 for concerts', website: '')
 
-const casperEvents = Venue.create!(name: 'Casper Events Center', address: '', city: 'Casper', zip: , state: 'WY', description: 'The Ford Wyoming Center (formerly known as the Casper Events Center) is a multi-purpose arena in Casper, Wyoming, in the United States. The arena was built in April 1982. It seats 8,395 for ice hockey and indoor football games, 8,842 for basketball games, and up to 9,700 for concerts', website: '')
+casperEvents = Venue.create!(name: 'Casper Events Center', address: '', city: 'Casper', zip: 307, state: 'WY', description: 'The Ford Wyoming Center (formerly known as the Casper Events Center) is a multi-purpose arena in Casper, Wyoming, in the United States. The arena was built in April 1982. It seats 8,395 for ice hockey and indoor football games, 8,842 for basketball games, and up to 9,700 for concerts', website: '')
 
-const oilCity = Venue.create!(name: 'Oil City Beer Company', address: '', city: 'Casper', zip: , state: 'WY', description: 'Brewery with live music in Casper', website: '')
+oilCity = Venue.create!(name: 'Oil City Beer Company', address: '', city: 'Casper', zip: 307, state: 'WY', description: 'Brewery with live music in Casper', website: '')
 
-const lincoln = Venue.create!(name: 'The Lincoln', address: '', city: 'Cheyenne', zip: , state: 'WY', description: 'Venue in Cheyenne. Hosts private events. There is no reserved seating, except for those guests who require ADA seating. The main floor of our venue is all standing room only. The upper balcony has the original theatre seats for those who want to sit. The lower balcony is tiered concrete stadium style seating that you can either stand at, or sit on. Getting here early is the only way to secure your favorite spot. (But don’t worry, there’s not a bad spot in the house!)', website: '')
+lincoln = Venue.create!(name: 'The Lincoln', address: '', city: 'Cheyenne', zip: 307, state: 'WY', description: 'Venue in Cheyenne. Hosts private events. There is no reserved seating, except for those guests who require ADA seating. The main floor of our venue is all standing room only. The upper balcony has the original theatre seats for those who want to sit. The lower balcony is tiered concrete stadium style seating that you can either stand at, or sit on. Getting here early is the only way to secure your favorite spot. (But don’t worry, there’s not a bad spot in the house!)', website: '')
 
-const outlaw = Venue.create!(name: 'Outlaw Saloon', address: '', city: 'Cheyenne', zip: , state: 'WY', description: "Outlaw Saloon has been a Cheyenne, WY staple for over 23 years. We've become a favorite of locals and visitors from around the world. No matter where you hail from, you'll enjoy your time with us. Stop by our bar today to enjoy daily drink deals and live music.", website: '')
+outlaw = Venue.create!(name: 'Outlaw Saloon', address: '', city: 'Cheyenne', zip: 307, state: 'WY', description: "Outlaw Saloon has been a Cheyenne, WY staple for over 23 years. We've become a favorite of locals and visitors from around the world. No matter where you hail from, you'll enjoy your time with us. Stop by our bar today to enjoy daily drink deals and live music.", website: '')
 
-const cheyenneCivic = Venue.create!(name: 'Cheyenne Civic Center', address: '', city: 'Cheyenne', zip: , state: 'WY', description: "We are a team of artists, creatives, tech masters, data analysts, and forward thinkers. Our team specializes in every phase of the event planning process from event planning and marketing to production, execution, and event management. With 20 years behind us, you can expect an event with our name on it to be the highest quality experience. We are events.", website: '')
+cheyenneCivic = Venue.create!(name: 'Cheyenne Civic Center', address: '', city: 'Cheyenne', zip: 307, state: 'WY', description: "We are a team of artists, creatives, tech masters, data analysts, and forward thinkers. Our team specializes in every phase of the event planning process from event planning and marketing to production, execution, and event management. With 20 years behind us, you can expect an event with our name on it to be the highest quality experience. We are events.", website: '')
 
-const railspur = Venue.create!(name: 'Railspur', address: '', city: 'Cheyenne', zip: , state: 'WY', description: "Part of Cheyenne’s original (and literal) “West Edge,” the Railspur property began its life as an actual railroad spur for the Military Department, used to access what’s now F.E. Warren Air Force Base. A century and some change later, the Railspur embodies both the entrepreneurial spirit that earned Cheyenne its nickname—”Magic City of the Plains”—and the “roll up your sleeves and let’s make it happen” mentality that’s spurring growth in the West Edge district today.", website: '')
+railspur = Venue.create!(name: 'Railspur', address: '', city: 'Cheyenne', zip: 307, state: 'WY', description: "Part of Cheyenne’s original (and literal) “West Edge,” the Railspur property began its life as an actual railroad spur for the Military Department, used to access what’s now F.E. Warren Air Force Base. A century and some change later, the Railspur embodies both the entrepreneurial spirit that earned Cheyenne its nickname—”Magic City of the Plains”—and the “roll up your sleeves and s make it happen” mentality that’s spurring growth in the West Edge district today.", website: '')
 
-const centerTheater = Venue.create!(name: 'Center Theater', address: '', city: 'Jackson', zip: , state: 'WY', description: "At Center for the Arts, our mission is rooted in connecting our creative community. Inherent in that is connecting all individuals - regardless of identity, ability, background, or personal experience - to opportunities that allow us to share, experience, and enjoy the arts.", website: '')
+centerTheater = Venue.create!(name: 'Center Theater', address: '', city: 'Jackson', zip: 307, state: 'WY', description: "At Center for the Arts, our mission is rooted in connecting our creative community. Inherent in that is connecting all individuals - regardless of identity, ability, background, or personal experience - to opportunities that allow us to share, experience, and enjoy the arts.", website: '')
 
-const centerForArts = Venue.create!(name: 'Center for the Arts', address: '', city: 'Jackson', zip: , state: 'WY', description: "At Center for the Arts, our mission is rooted in connecting our creative community. Inherent in that is connecting all individuals - regardless of identity, ability, background, or personal experience - to opportunities that allow us to share, experience, and enjoy the arts.", website: '')
+centerForArts = Venue.create!(name: 'Center for the Arts', address: '', city: 'Jackson', zip: 307, state: 'WY', description: "At Center for the Arts, our mission is rooted in connecting our creative community. Inherent in that is connecting all individuals - regardless of identity, ability, background, or personal experience - to opportunities that allow us to share, experience, and enjoy the arts.", website: '')
 
-const millionDollarBar = Venue.create!(name: 'Million Dollar Cowboy Bar', address: '', city: 'Jackson', zip: , state: 'WY', description: "Wyoming's landmark watering hole. The Million Dollar Cowboy Bar is located on the town square in the heart of Jackson. The Million Dollar Cowboy Bar is a unique Western drinking and entertainment venue that was established in 1937. True to its name, the Million Dollar Cowboy Bar is no ordinary bar. Countless celebrities, presidents, royalty, cowhands, as well as people from all walks of life, have enjoyed great fun within the walls of the iconic Million Dollar Cowboy Bar.", website: '')
+millionDollarBar = Venue.create!(name: 'Million Dollar Cowboy Bar', address: '', city: 'Jackson', zip: 307, state: 'WY', description: "Wyoming's landmark watering hole. The Million Dollar Cowboy Bar is located on the town square in the heart of Jackson. The Million Dollar Cowboy Bar is a unique Western drinking and entertainment venue that was established in 1937. True to its name, the Million Dollar Cowboy Bar is no ordinary bar. Countless celebrities, presidents, royalty, cowhands, as well as people from all walks of life, have enjoyed great fun within the walls of the iconic Million Dollar Cowboy Bar.", website: '')
 
-const mangyMoose = Venue.create!(name: 'Mangy Moose', address: '', city: 'Jackson', zip: , state: 'WY', description: "The Mangy Moose Saloon stage has hosted legendary artists like Taj Mahal, Arlo Guthrie, and Kris Kristofferson, and modern greats like Hozier, Ben Harper, and Galactic. We have free live music daily during the summer and winter seasons alongside shows with big name headliners. Whatever kind of music you like to get down to: you'll find it at the Moose!", website: '')
+mangyMoose = Venue.create!(name: 'Mangy Moose', address: '', city: 'Jackson', zip: 307, state: 'WY', description: "The Mangy Moose Saloon stage has hosted legendary artists like Taj Mahal, Arlo Guthrie, and Kris Kristofferson, and modern greats like Hozier, Ben Harper, and Galactic. We have free live music daily during the summer and winter seasons alongside shows with big name headliners. Whatever kind of music you like to get down to: you'll find it at the Moose!", website: '')
 
-const gryphon = Venue.create!(name: 'Gryphon Theatre', address: '', city: 'Laramie', zip: , state: 'WY', description: "", website: '')
+gryphon = Venue.create!(name: 'Gryphon Theatre', address: '', city: 'Laramie', zip: 307, state: 'WY', description: "", website: '')
 
-const ruffedUpDuck = Venue.create!(name: 'Ruffed Up Duck Saloon', address: '', city: 'Laramie', zip: , state: 'WY', description: "Ruffed Up Duck Saloon hosts concerts for a wide range of genres from artists such as Pretend Friend, David Miner, and Chasen Wayne And The Hony Tonk Machine, having previously welcomed the likes of Alex Teller, Sweet Virginia (Colorado), and Cary Morin.", website: '')
+ruffedUpDuck = Venue.create!(name: 'Ruffed Up Duck Saloon', address: '', city: 'Laramie', zip: 307, state: 'WY', description: "Ruffed Up Duck Saloon hosts concerts for a wide range of genres from artists such as Pretend Friend, David Miner, and Chasen Wayne And The Hony Tonk Machine, having previously welcomed the likes of Alex Teller, Sweet Virginia (Colorado), and Cary Morin.", website: '')
 
-const buckhorn = Venue.create!(name: 'Buckhorn Bar', address: '', city: 'Laramie', zip: , state: 'WY', description: "", website: '')
+buckhorn = Venue.create!(name: 'Buckhorn Bar', address: '', city: 'Laramie', zip: 307, state: 'WY', description: "", website: '')
 
-const beacon = Venue.create!(name: 'Beacon Cup', address: '', city: 'Mills', zip: , state: 'WY', description: "", website: '')
+beacon = Venue.create!(name: 'Beacon Cup', address: '', city: 'Mills', zip: 307, state: 'WY', description: "", website: '')
 
-const robertPeck = Venue.create!(name: 'Robert A Peck Art Center', address: '', city: 'Riverton', zip: , state: 'WY', description: "The Robert A. Peck Arts Center offers a full slate of cultural activities year round. Professional touring groups and visiting visual artists enhance the concerts, exhibits and theater productions by CWC visual and performing artists.", website: '')
+robertPeck = Venue.create!(name: 'Robert A Peck Art Center', address: '', city: 'Riverton', zip: 307, state: 'WY', description: "The Robert A. Peck Arts Center offers a full slate of cultural activities year round. Professional touring groups and visiting visual artists enhance the concerts, exhibits and theater productions by CWC visual and performing artists.", website: '')
 
-const misc = Venue.create!(name: '', address: '', city: '', zip: , state: 'WY', description: "Random venues with inconsistant concerts", website: '')
+misc = Venue.create!(name: 'Misc', address: '', city: '', zip: 307, state: 'WY', description: "Random venues with inconsistant concerts", website: '')
 
 
-Concert.create!(date: "03092023",                                            
-  name: "Jason Isbell and The 400 Unit",                       
-  price: "free",
-  website: "https://www.jambase.com/show/jason-isbell-and-the-400-unit-center-theater-20230309",
-  venue: centerTheater,
-  image:
-   "https://res.cloudinary.com/dhh19fozh/q_auto:good,f_auto,dpr_1.0/w_auto:breakpoints_85_850_10_10/jb7production-uploads/2015/07/jason-isbell-400-unit-2020-press-1200x675.jpg",
-  bands: "Jason Isbell and The 400 Unit",
-  description:
-   "Jason Isbell and The 400 Unit is Jason Isbell's second full-length album, and first album released with The 400 Unit as accompanying band. The deluxe version of the album contains an additional four tracks. On October 18, 2019, the album was re-released with remixing done by Dave Cobb and remastering done by Pete Lyman.")
+Concert.create!(date: "03092023", name: "Jason Isbell and The 400 Unit", price: "free", website: "https://www.jambase.com/show/jason-isbell-and-the-400-unit-center-theater-20230309",venue:centerTheater, image:"https://res.cloudinary.com/dhh19fozh/q_auto:good,f_auto,dpr_1.0/w_auto:breakpoints_85_850_10_10/jb7production-uploads/2015/07/jason-isbell-400-unit-2020-press-1200x675.jpg",bands: "Jason Isbell and The 400 Unit",description:"Jason Isbell and The 400 Unit is Jason Isbell's second full-length album, and first album released with The 400 Unit as accompanying band. The deluxe version of the album contains an additional four tracks. On October 18, 2019, the album was re-released with remixing done by Dave Cobb and remastering done by Pete Lyman.")
  
 Concert.create!(date: "02202023",
   name: "Pretend Friend",
@@ -185,8 +176,6 @@ Concert.create!(date: "07182023",
   price: nil,
   website: "https://www.jambase.com/show/whiskey-myers-ford-wyoming-center-20230718",
   venue: fordCenter,
-  created_at: Mon, 13 Feb 2023 20:20:04.562793000 UTC +00:00,
-  updated_at: Mon, 13 Feb 2023 20:20:04.562793000 UTC +00:00,
   image:
    "https://res.cloudinary.com/dhh19fozh/q_auto:good,f_auto,dpr_1.0/w_auto:breakpoints_85_850_10_10/jb7production-uploads/2019/10/whiskey-myers-ticketmaster-ram-1200x675.jpg",
   bands: "Whiskey Myers",
@@ -227,8 +216,6 @@ Concert.create!(date: "03022023",
   price: "22",
   website: "https://www.prekindle.com/event/86222-metalachi-teton-village",
   venue: mangyMoose,
-  created_at: Mon, 13 Feb 2023 20:20:09.116525000 UTC +00:00,
-  updated_at: Wed, 15 Feb 2023 23:50:30.036406000 UTC +00:00,
   image: "https://d1yf68t7nbxlyn.cloudfront.net/image/id/532385973917541906",
   bands: "Metalachi",
   description: "\"A perfect merging of Metal & Mariachi\" - Howard Stern")
@@ -297,7 +284,7 @@ Concert.create!(date: "02232023",
   name: "Riley Green",
   price: "free",
   website: "https://www.jambase.com/show/riley-green-million-dollar-cowboy-bar-20230223",
-  venue: millionDollarBar
+  venue: millionDollarBar,
   image:
    "https://res.cloudinary.com/dhh19fozh/q_auto:good,f_auto,dpr_1.0/w_auto:breakpoints_85_850_10_10/jb7production-uploads/2019/10/riley-green-ticketmaster-ram-1200x675.jpg",
   bands: "Riley Green",
