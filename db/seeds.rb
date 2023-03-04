@@ -1,16 +1,10 @@
 Concert.destroy_all
-# User.destroy_all
+User.destroy_all
 # Band.destroy_all
 Venue.destroy_all
 
 
-# User.create!(admin: true, email: 'test', password: 'test', promotion_interest: false, username: 'David')
-
-# Band.create!(name: 'Eagles', category: 'classic rock')
-# Band.create!(name: 'Lynyrd Skynyrd', category: 'rock')
-# Band.create!(name: 'Revivalist', category: 'funk rock')
-# Band.create!(name: 'George Straight', category: 'country')
-# Band.create!(name: 'Beethoven', category: 'classical')
+User.create!(admin: true, email: 'test', password: 'test', promotion_interest: false, username: 'David')
 
 # Venue.create!(name: 'Lander Bar', address: '123 main st', city: 'Lander', zip: 82520, state: 'WY', description: 'small local bar', website: 'www.landerbar.com')
 # Venue.create!(name: 'Frontier Days', address: '1 road st', city: 'cheyenne', zip: 80500, state: 'WY', description: 'Biggest show in Wyoming. Three day festival.', website: 'www.frontierdays.com')
